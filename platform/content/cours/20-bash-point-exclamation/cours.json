@@ -1,0 +1,191 @@
+{
+  "title": "Le « ! » de Bash en 15 usages",
+  "summary": "Historique, arguments, corrections et négation logique : le point d'exclamation de Bash sous toutes ses formes, en 15 fiches testées sous Bash 5.2.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "linux",
+    "bash"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Introduction et vue d'ensemble",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "type": "TEXT",
+          "file": "1-01-introduction.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "Le ! en un coup d'œil",
+          "type": "TEXT",
+          "file": "1-02-le-en-un-coup-d-il.md",
+          "minutes": 3,
+          "freePreview": true
+        }
+      ]
+    },
+    {
+      "title": "Rappeler l'historique",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : rappeler l'historique",
+          "type": "TEXT",
+          "file": "2-01-vue-d-ensemble-rappeler-l-historique.md",
+          "minutes": 2
+        },
+        {
+          "title": "01 · !n — Réexécuter une commande par son numéro",
+          "type": "TEXT",
+          "file": "2-02-01-n-reexecuter-une-commande-par-son-numero.md",
+          "minutes": 2
+        },
+        {
+          "title": "02 · !-n — Rappeler une commande par sa position",
+          "type": "TEXT",
+          "file": "2-03-02-n-rappeler-une-commande-par-sa-position.md",
+          "minutes": 2
+        },
+        {
+          "title": "03 · !! — Répéter la dernière commande",
+          "type": "TEXT",
+          "file": "2-04-03-repeter-la-derniere-commande.md",
+          "minutes": 2
+        },
+        {
+          "title": "04 · !chaîne — Rappeler par le début ou le contenu",
+          "type": "TEXT",
+          "file": "2-05-04-chaine-rappeler-par-le-debut-ou-le-contenu.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Réutiliser et transformer",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : réutiliser et transformer",
+          "type": "TEXT",
+          "file": "3-01-vue-d-ensemble-reutiliser-et-transformer.md",
+          "minutes": 2
+        },
+        {
+          "title": "05 · !$ · !^ · !* — Réutiliser les arguments précédents",
+          "type": "TEXT",
+          "file": "3-02-05-reutiliser-les-arguments-precedents.md",
+          "minutes": 2
+        },
+        {
+          "title": "06 · !:n — Choisir un argument ou une plage",
+          "type": "TEXT",
+          "file": "3-03-06-n-choisir-un-argument-ou-une-plage.md",
+          "minutes": 2
+        },
+        {
+          "title": "07 · ^ancien^nouveau^ — Corriger une faute de frappe",
+          "type": "TEXT",
+          "file": "3-04-07-ancien-nouveau-corriger-une-faute-de-frappe.md",
+          "minutes": 2
+        },
+        {
+          "title": "08 · :h · :t · :r · :e — Découper un chemin de fichier",
+          "type": "TEXT",
+          "file": "3-05-08-h-t-r-e-decouper-un-chemin-de-fichier.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Utiliser l'historique sans risque",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : utiliser l'historique sans risque",
+          "type": "TEXT",
+          "file": "4-01-vue-d-ensemble-utiliser-l-historique-sans-risque.md",
+          "minutes": 2
+        },
+        {
+          "title": "09 · :p — Prévisualiser avant d'exécuter",
+          "type": "TEXT",
+          "file": "4-02-09-p-previsualiser-avant-d-executer.md",
+          "minutes": 2
+        },
+        {
+          "title": "10 · set +H — Éviter l'erreur « event not found »",
+          "type": "TEXT",
+          "file": "4-03-10-set-h-eviter-l-erreur-event-not-found.md",
+          "minutes": 2
+        },
+        {
+          "title": "11 · histexpand — Historique et scripts : ce qui marche",
+          "type": "TEXT",
+          "file": "4-04-11-histexpand-historique-et-scripts-ce-qui-marche.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "La négation logique",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : la négation logique",
+          "type": "TEXT",
+          "file": "5-01-vue-d-ensemble-la-negation-logique.md",
+          "minutes": 2
+        },
+        {
+          "title": "12 · [ ! -d rep ] — Tester l'absence d'un fichier",
+          "type": "TEXT",
+          "file": "5-02-12-d-rep-tester-l-absence-d-un-fichier.md",
+          "minutes": 2
+        },
+        {
+          "title": "13 · if ! commande — Inverser un code de retour",
+          "type": "TEXT",
+          "file": "5-03-13-if-commande-inverser-un-code-de-retour.md",
+          "minutes": 2
+        },
+        {
+          "title": "14 · !(motif) — Exclure des fichiers d'un motif",
+          "type": "TEXT",
+          "file": "5-04-14-motif-exclure-des-fichiers-d-un-motif.md",
+          "minutes": 2
+        },
+        {
+          "title": "15 · ${!var} — Expansion indirecte et clés de tableau",
+          "type": "TEXT",
+          "file": "5-05-15-var-expansion-indirecte-et-cles-de-tableau.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Conclusion et annexes",
+      "lessons": [
+        {
+          "title": "Conclusion",
+          "type": "TEXT",
+          "file": "6-01-conclusion.md",
+          "minutes": 2
+        },
+        {
+          "title": "Annexes : aide-mémoire et références",
+          "type": "TEXT",
+          "file": "6-02-annexes-aide-memoire-et-references.md",
+          "minutes": 5
+        },
+        {
+          "title": "Le guide complet en PDF",
+          "type": "PDF",
+          "file": "6-03-le-guide-complet-en-pdf.md",
+          "minutes": 30,
+          "pdf": "Guide_Bash_Point_Exclamation_Ngouye_GNING_illustre-1.pdf"
+        }
+      ]
+    }
+  ]
+}

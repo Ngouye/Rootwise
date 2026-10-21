@@ -1,0 +1,5 @@
+# PDF officiels téléchargés par import.mjs (retéléchargés et vérifiés par SHA-256 au besoin)
+.cache/
+
+# SVG intermédiaires produits par illustrations/generer.py (les PNG des cours sont versionnés)
+illustrations/svg/

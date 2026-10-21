@@ -1,0 +1,552 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-jakarta);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-jakarta);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --shadow-soft: var(--elev-soft);
+  --shadow-lift: var(--elev-lift);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-glow: var(--glow);
+}
+
+/*
+ * Palette inspirée des maquettes « Haven & Co. » : fond clair légèrement bleuté, texte marine,
+ * accent sarcelle. Le thème sombre reprend le marine des bandeaux.
+ */
+:root {
+  --background: oklch(0.982 0.004 230);
+  --foreground: oklch(0.22 0.045 258);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.045 258);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.045 258);
+  --primary: oklch(0.52 0.095 190);
+  --primary-foreground: oklch(0.99 0.005 190);
+  --secondary: oklch(0.955 0.022 190);
+  --secondary-foreground: oklch(0.38 0.08 192);
+  --muted: oklch(0.962 0.007 235);
+  --muted-foreground: oklch(0.52 0.03 255);
+  --accent: oklch(0.955 0.022 190);
+  --accent-foreground: oklch(0.32 0.07 195);
+  --destructive: oklch(0.577 0.215 27.3);
+  --border: oklch(0.92 0.012 240);
+  --input: oklch(0.9 0.014 240);
+  --ring: oklch(0.6 0.1 190);
+  --chart-1: oklch(0.52 0.095 190);
+  --chart-2: oklch(0.65 0.13 220);
+  --chart-3: oklch(0.6 0.16 290);
+  --chart-4: oklch(0.75 0.15 75);
+  --chart-5: oklch(0.6 0.19 25);
+  --radius: 0.75rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.22 0.045 258);
+  --sidebar-primary: oklch(0.52 0.095 190);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.955 0.022 190);
+  --sidebar-accent-foreground: oklch(0.32 0.07 195);
+  --sidebar-border: oklch(0.92 0.012 240);
+  --sidebar-ring: oklch(0.6 0.1 190);
+  /* Bandeaux marine (statistiques, appel final, pied de page). */
+  --navy: oklch(0.2 0.045 250);
+  --navy-2: oklch(0.27 0.06 220);
+  --glow: oklch(0.78 0.13 190);
+  --elev-soft: 0 1px 2px oklch(0.22 0.045 258 / 4%), 0 8px 24px -12px oklch(0.22 0.045 258 / 14%);
+  --elev-lift: 0 2px 4px oklch(0.22 0.045 258 / 4%), 0 24px 48px -20px oklch(0.22 0.045 258 / 28%);
+}
+
+.dark {
+  --background: oklch(0.165 0.03 250);
+  --foreground: oklch(0.96 0.01 230);
+  --card: oklch(0.205 0.035 250);
+  --card-foreground: oklch(0.96 0.01 230);
+  --popover: oklch(0.205 0.035 250);
+  --popover-foreground: oklch(0.96 0.01 230);
+  --primary: oklch(0.78 0.12 182);
+  --primary-foreground: oklch(0.2 0.045 250);
+  --secondary: oklch(0.27 0.04 220);
+  --secondary-foreground: oklch(0.86 0.08 185);
+  --muted: oklch(0.245 0.03 250);
+  --muted-foreground: oklch(0.72 0.025 240);
+  --accent: oklch(0.27 0.04 220);
+  --accent-foreground: oklch(0.9 0.06 185);
+  --destructive: oklch(0.704 0.191 22.2);
+  --border: oklch(1 0 0 / 9%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.7 0.11 185);
+  --sidebar: oklch(0.205 0.035 250);
+  --sidebar-foreground: oklch(0.96 0.01 230);
+  --sidebar-primary: oklch(0.78 0.12 182);
+  --sidebar-primary-foreground: oklch(0.2 0.045 250);
+  --sidebar-accent: oklch(0.27 0.04 220);
+  --sidebar-accent-foreground: oklch(0.9 0.06 185);
+  --sidebar-border: oklch(1 0 0 / 9%);
+  --sidebar-ring: oklch(0.7 0.11 185);
+  --navy: oklch(0.13 0.03 250);
+  --navy-2: oklch(0.22 0.05 220);
+  --elev-soft: 0 1px 2px oklch(0 0 0 / 30%), 0 8px 24px -12px oklch(0 0 0 / 50%);
+  --elev-lift: 0 2px 4px oklch(0 0 0 / 30%), 0 24px 48px -20px oklch(0 0 0 / 70%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+/* Briques visuelles de la plateforme (maquettes « Haven & Co. »). */
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs font-semibold tracking-wide text-primary;
+  }
+  .heading-display {
+    @apply font-extrabold text-balance text-foreground;
+    letter-spacing: -0.025em;
+    word-spacing: 0.04em;
+    line-height: 1.06;
+  }
+  .heading-section {
+    @apply text-3xl font-extrabold text-balance text-foreground sm:text-4xl;
+    letter-spacing: -0.022em;
+    word-spacing: 0.04em;
+    line-height: 1.12;
+  }
+  .text-accent-gradient {
+    background-image: linear-gradient(100deg, var(--primary) 0%, oklch(0.66 0.12 205) 45%, var(--primary) 90%);
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .surface {
+    @apply rounded-2xl border bg-card shadow-soft;
+  }
+  .surface-navy {
+    background:
+      radial-gradient(60rem 30rem at 85% -10%, oklch(0.55 0.11 195 / 35%), transparent 60%),
+      radial-gradient(40rem 24rem at 0% 110%, oklch(0.5 0.12 250 / 30%), transparent 60%),
+      linear-gradient(135deg, var(--navy), var(--navy-2));
+  }
+  .bg-dots {
+    background-image: radial-gradient(color-mix(in oklch, var(--foreground) 9%, transparent) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  /* Halo flou décoratif. */
+  .glow-orb {
+    @apply pointer-events-none absolute rounded-full blur-3xl;
+    background: radial-gradient(circle, oklch(0.75 0.13 190 / 70%), transparent 65%);
+  }
+  /* Grand arc lumineux des maquettes, derrière le visuel principal. */
+  .glow-arc {
+    @apply pointer-events-none absolute rounded-full;
+    border: 2px solid transparent;
+    background:
+      conic-gradient(from 200deg, transparent 0deg, oklch(0.85 0.12 195) 40deg, oklch(0.7 0.14 220 / 60%) 80deg, transparent 140deg) border-box;
+    -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    filter: drop-shadow(0 0 12px oklch(0.8 0.13 195 / 80%));
+  }
+  /* Carte qui se soulève au survol. */
+  .card-lift {
+    @apply transition-[transform,box-shadow,border-color] duration-500;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .card-lift:hover {
+    @apply -translate-y-1.5 border-primary/30 shadow-lift;
+  }
+  /* Reflet qui balaie l'image d'une carte au survol. */
+  .card-shine {
+    @apply relative overflow-hidden;
+  }
+  .card-shine::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 -translate-x-full;
+    background: linear-gradient(110deg, transparent 30%, oklch(1 0 0 / 35%) 50%, transparent 70%);
+  }
+  .group:hover .card-shine::after {
+    @apply translate-x-full transition-transform duration-1000;
+  }
+  .marquee-track {
+    @apply flex w-max gap-3;
+  }
+}
+
+/* ───────── Effets « vitrine » ───────── */
+@property --beam-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@layer components {
+  /* Faisceau lumineux qui parcourt la bordure d'un bloc. */
+  .border-beam {
+    position: relative;
+    isolation: isolate;
+  }
+  .border-beam::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    padding: 1.5px;
+    pointer-events: none;
+    background: conic-gradient(
+      from var(--beam-angle),
+      transparent 0 68%,
+      oklch(0.82 0.13 190) 80%,
+      oklch(0.7 0.16 240) 88%,
+      transparent 96%
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  /* Taches de couleur floues qui dérivent lentement (aurore). */
+  .aurora-blob {
+    @apply pointer-events-none absolute rounded-full;
+    filter: blur(80px);
+    opacity: 0.4;
+  }
+  .dark .aurora-blob {
+    opacity: 0.28;
+  }
+
+  /* Grain photographique très léger sur les bandeaux sombres. */
+  .noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Quadrillage discret, et sa version lumineuse révélée autour du pointeur (--sx/--sy). */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklch, var(--foreground) 6%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--foreground) 6%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .grid-reveal {
+    background-image:
+      linear-gradient(to right, color-mix(in oklch, var(--primary) 55%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklch, var(--primary) 55%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(15rem circle at var(--sx, -999px) var(--sy, -999px), #000, transparent 70%);
+    mask-image: radial-gradient(15rem circle at var(--sx, -999px) var(--sy, -999px), #000, transparent 70%);
+  }
+
+  /* Halo qui suit le pointeur dans une zone (SpotlightArea). */
+  .spotlight-area {
+    position: relative;
+  }
+  .spotlight-area::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(38rem circle at var(--sx, 70%) var(--sy, 10%), oklch(0.75 0.13 190 / 13%), transparent 60%);
+  }
+
+  /* Bordure qui s'illumine sous le pointeur (Tilt, GlowCard : --mx/--my). */
+  .spotlight-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border-radius: inherit;
+    padding: 1.5px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    background: radial-gradient(16rem circle at var(--mx, 50%) var(--my, 50%), oklch(0.72 0.14 190), transparent 50%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  .spotlight-border:hover::before {
+    opacity: 1;
+  }
+  /* Variante qui éclaire aussi le fond de la carte. */
+  .spotlight-fill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s;
+    background: radial-gradient(22rem circle at var(--mx, 50%) var(--my, 50%), oklch(0.75 0.13 190 / 9%), transparent 60%);
+  }
+  .spotlight-fill:hover::after {
+    opacity: 1;
+  }
+
+  /* Reflet qui traverse un bouton d'appel à l'action. */
+  .shine-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine-sweep::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    transform: translateX(-120%) skewX(-18deg);
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 38%), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-float { animation: float 7s ease-in-out infinite; }
+  .animate-float-slow { animation: float 9s ease-in-out infinite; animation-delay: -3s; }
+  .animate-spin-slow { animation: spin-slow 40s linear infinite; }
+  .animate-shimmer-text { animation: shimmer 6s linear infinite; }
+  .marquee-track { animation: marquee 40s linear infinite; }
+  .marquee-reverse .marquee-track { animation-direction: reverse; animation-duration: 46s; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .animate-pulse-ring { animation: pulse-ring 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+  .animate-orbit { animation: spin-slow 30s linear infinite; }
+  .animate-orbit-reverse { animation: spin-slow 30s linear infinite reverse; }
+  .border-beam::after { animation: beam 7s linear infinite; }
+  .aurora-blob { animation: aurora 18s ease-in-out infinite alternate; }
+  .aurora-blob:nth-child(2) { animation-duration: 23s; animation-delay: -6s; }
+  .aurora-blob:nth-child(3) { animation-duration: 27s; animation-delay: -12s; }
+  .shine-sweep::after { animation: sweep 4.5s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+}
+
+@keyframes beam {
+  to { --beam-angle: 360deg; }
+}
+@keyframes aurora {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6%, 8%) scale(1.15); }
+  100% { transform: translate(-6%, -4%) scale(0.92); }
+}
+@keyframes sweep {
+  0%, 55% { transform: translateX(-120%) skewX(-18deg); }
+  85%, 100% { transform: translateX(220%) skewX(-18deg); }
+}
+
+/* Défilement fluide (Lenis). */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes shimmer {
+  to { background-position: 220% center; }
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 oklch(0.65 0.12 190 / 45%); }
+  100% { box-shadow: 0 0 0 14px oklch(0.65 0.12 190 / 0%); }
+}
+
+/* Contenu Markdown des cours, quiz et forum. */
+@layer components {
+  .markdown {
+    @apply text-[1rem] leading-[1.8] text-foreground/85;
+  }
+  .markdown img {
+    @apply rounded-2xl;
+  }
+  .markdown > * + * {
+    @apply mt-4;
+  }
+  .markdown h1,
+  .markdown h2,
+  .markdown h3 {
+    @apply mt-10 font-bold tracking-tight text-foreground;
+  }
+  .markdown h2 {
+    @apply flex items-center gap-3;
+  }
+  .markdown h2::before {
+    content: "";
+    @apply h-6 w-1 shrink-0 rounded-full bg-gradient-to-b from-primary to-[oklch(0.7_0.12_205)];
+  }
+  .markdown h1 { @apply text-2xl; }
+  .markdown h2 { @apply text-xl; }
+  .markdown h3 { @apply text-lg; }
+  .markdown a {
+    @apply text-primary underline underline-offset-4;
+  }
+  .markdown strong {
+    @apply font-semibold text-foreground;
+  }
+  .markdown ul { @apply list-disc pl-6; }
+  .markdown ol { @apply list-decimal pl-6; }
+  .markdown li + li { @apply mt-1; }
+  .markdown blockquote {
+    @apply border-l-2 border-primary/60 pl-4 text-muted-foreground italic;
+  }
+  .markdown :not(pre) > code {
+    @apply rounded bg-muted px-1.5 py-0.5 font-mono text-[0.85em] text-foreground;
+  }
+  .markdown pre {
+    @apply overflow-x-auto rounded-lg border bg-[#0d1117] p-4 text-sm leading-6;
+  }
+  .markdown pre code {
+    @apply bg-transparent p-0 font-mono;
+  }
+  /* Bloc de code présenté comme une fenêtre de terminal. */
+  .markdown .code-window {
+    @apply overflow-hidden rounded-xl border border-white/10 bg-[#0d1117] shadow-lg shadow-black/30;
+  }
+  .markdown .code-window pre {
+    @apply m-0 rounded-none border-0 bg-transparent px-4 pt-3 pb-4;
+  }
+  .markdown .code-window-bar {
+    @apply flex items-center gap-3 border-b border-white/10 bg-[#161b22] px-3 py-1.5;
+  }
+  .markdown .code-window-dots {
+    @apply flex gap-1.5;
+  }
+  .markdown .code-window-dots span {
+    @apply size-2.5 rounded-full;
+  }
+  .markdown .code-window-dots span:nth-child(1) { @apply bg-[#ff5f57]; }
+  .markdown .code-window-dots span:nth-child(2) { @apply bg-[#febc2e]; }
+  .markdown .code-window-dots span:nth-child(3) { @apply bg-[#28c840]; }
+  .markdown .code-window-title {
+    @apply font-mono text-xs text-muted-foreground;
+  }
+  /* Encadrés « > [!TIP] Titre ». */
+  .markdown .callout {
+    @apply flex gap-3 rounded-xl border-l-4 px-4 py-3.5 not-italic;
+    border-color: var(--callout);
+    background: color-mix(in oklch, var(--callout) 10%, transparent);
+  }
+  .markdown .callout-note { --callout: #2563eb; }
+  .markdown .callout-tip { --callout: #0d9488; }
+  .markdown .callout-important { --callout: #7c3aed; }
+  .markdown .callout-warning { --callout: #d97706; }
+  .markdown .callout-caution { --callout: #dc2626; }
+  .dark .markdown .callout-note { --callout: #60a5fa; }
+  .dark .markdown .callout-tip { --callout: #2dd4bf; }
+  .dark .markdown .callout-important { --callout: #a78bfa; }
+  .dark .markdown .callout-warning { --callout: #fbbf24; }
+  .dark .markdown .callout-caution { --callout: #f87171; }
+  .markdown .callout-icon {
+    @apply mt-0.5 size-5 shrink-0;
+    color: var(--callout);
+  }
+  .markdown .callout-body {
+    @apply min-w-0 flex-1 text-foreground/90;
+  }
+  .markdown .callout-body > * + * {
+    @apply mt-2;
+  }
+  .markdown .callout-title {
+    @apply text-xs font-bold tracking-wider uppercase;
+    color: var(--callout);
+  }
+  .markdown table {
+    @apply block w-max max-w-full overflow-x-auto rounded-xl border text-sm shadow-soft;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  .markdown th,
+  .markdown td {
+    @apply border-b px-3.5 py-2.5 text-left align-top;
+  }
+  .markdown tr:last-child td {
+    @apply border-b-0;
+  }
+  .markdown th {
+    @apply bg-muted font-semibold text-foreground;
+  }
+  .markdown td {
+    @apply bg-card;
+  }
+  .markdown tbody tr:hover td {
+    @apply bg-primary/4;
+  }
+  .markdown .katex-display {
+    @apply overflow-x-auto overflow-y-hidden py-1;
+  }
+  .markdown hr { @apply border-border; }
+}

@@ -1,0 +1,324 @@
+{
+  "title": "Courbes elliptiques : ECDH, ECDSA et Ed25519",
+  "summary": "Le groupe des points d'une courbe, l'échange de clés X25519 et les signatures ECDSA et Ed25519, avec un exemple entièrement calculé à la main.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "ecc",
+    "signature"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Le groupe d'une courbe elliptique",
+      "lessons": [
+        {
+          "title": "Une courbe sur un corps fini",
+          "type": "TEXT",
+          "file": "1-1-courbe.md",
+          "minutes": 15,
+          "freePreview": true
+        },
+        {
+          "title": "Exemple à la main : y² = x³ + 2x + 2 sur F₁₇",
+          "type": "TEXT",
+          "file": "1-2-exemple.md",
+          "minutes": 20
+        },
+        {
+          "title": "Vidéo : les courbes elliptiques (Science4All)",
+          "type": "YOUTUBE",
+          "youtube": "VvXfarnn0N4",
+          "file": "1-3-video.md",
+          "minutes": 41
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Sur la courbe $y^2 = x^3 + 2x + 2$ modulo 17, que vaut $2G$ pour $G = (5, 1)$ ?",
+            "explanationMd": "$\\lambda = 77 \\cdot 2^{-1} \\equiv 9 \\cdot 9 \\equiv 13$, puis $x = 169 - 10 \\equiv 6$ et $y = 13 \\cdot (5 - 6) - 1 \\equiv 3$.",
+            "choices": [
+              {
+                "labelMd": "$(6, 3)$",
+                "correct": true
+              },
+              {
+                "labelMd": "$(10, 6)$",
+                "correct": false
+              },
+              {
+                "labelMd": "$(5, 16)$",
+                "correct": false
+              },
+              {
+                "labelMd": "$(10, 2)$",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quel est l'élément neutre de l'addition des points ?",
+            "explanationMd": "Le point à l'infini $\\mathcal{O}$ : $P + \\mathcal{O} = P$ et $P + (-P) = \\mathcal{O}$.",
+            "choices": [
+              {
+                "labelMd": "Le point à l'infini $\\mathcal{O}$",
+                "correct": true
+              },
+              {
+                "labelMd": "Le point $(0, 0)$",
+                "correct": false
+              },
+              {
+                "labelMd": "Le point de base $G$",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle taille de clé elliptique offre une sécurité comparable à RSA-3072 ?",
+            "explanationMd": "Environ 128 bits de sécurité dans les deux cas (NIST SP 800-57).",
+            "choices": [
+              {
+                "labelMd": "256 bits",
+                "correct": true
+              },
+              {
+                "labelMd": "3072 bits",
+                "correct": false
+              },
+              {
+                "labelMd": "128 bits",
+                "correct": false
+              },
+              {
+                "labelMd": "1024 bits",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pour un point $P = (x, y)$, que vaut $-P$ ?",
+            "explanationMd": "Le symétrique par rapport à l'axe des abscisses : $(x, -y)$, soit $(x, p - y)$ modulo $p$.",
+            "choices": [
+              {
+                "labelMd": "$(x, -y)$",
+                "correct": true
+              },
+              {
+                "labelMd": "$(-x, y)$",
+                "correct": false
+              },
+              {
+                "labelMd": "$(-x, -y)$",
+                "correct": false
+              },
+              {
+                "labelMd": "$(y, x)$",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Parmi ces opérations, laquelle est facile à calculer ?",
+            "explanationMd": "La multiplication scalaire est rapide (doublement et addition) ; l'opération inverse est le logarithme discret, infaisable pour 256 bits.",
+            "choices": [
+              {
+                "labelMd": "Calculer $kG$ connaissant $k$ et $G$",
+                "correct": true
+              },
+              {
+                "labelMd": "Retrouver $k$ connaissant $kG$ et $G$",
+                "correct": false
+              },
+              {
+                "labelMd": "Les deux, avec un ordinateur classique puissant",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Échange de clés et signatures",
+      "lessons": [
+        {
+          "title": "ECDH et X25519",
+          "type": "TEXT",
+          "file": "2-1-ecdh.md",
+          "minutes": 15
+        },
+        {
+          "title": "ECDSA et le piège du nonce",
+          "type": "TEXT",
+          "file": "2-2-ecdsa.md",
+          "minutes": 20
+        },
+        {
+          "title": "Ed25519, la signature moderne",
+          "type": "TEXT",
+          "file": "2-3-ed25519.md",
+          "minutes": 12
+        },
+        {
+          "title": "Vidéo : signatures sur courbes elliptiques (Sylvain Duquesne)",
+          "type": "YOUTUBE",
+          "youtube": "3Id0drvcjas",
+          "file": "2-4-video-duquesne.md",
+          "minutes": 6
+        },
+        {
+          "title": "Vidéo : signatures et courbes elliptiques dans Bitcoin",
+          "type": "YOUTUBE",
+          "youtube": "gOjYiPkx4z8",
+          "file": "2-5-video-bitcoin.md",
+          "minutes": 15
+        },
+        {
+          "title": "Norme FIPS 186-5 (NIST) : signatures numériques",
+          "type": "PDF",
+          "document": "fips-186-5",
+          "file": "2-6-fips-186-5.md",
+          "minutes": 20
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Dans ECDH, que calcule Alice avec sa clé privée $a$ et la clé publique $B = bG$ de Bob ?",
+            "explanationMd": "$aB = abG$, le même point que Bob obtient avec $bA$.",
+            "choices": [
+              {
+                "labelMd": "$aB = abG$",
+                "correct": true
+              },
+              {
+                "labelMd": "$a + B$",
+                "correct": false
+              },
+              {
+                "labelMd": "$B / a$",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Que se passe-t-il si deux signatures ECDSA de messages différents utilisent le même nonce $k$ ?",
+            "explanationMd": "$k = (h_1 - h_2)/(s_1 - s_2)$, puis $d = (s_1 k - h_1)/r$ : la clé privée est retrouvée.",
+            "choices": [
+              {
+                "labelMd": "N'importe qui peut calculer la clé privée",
+                "correct": true
+              },
+              {
+                "labelMd": "Les deux signatures deviennent invalides",
+                "correct": false
+              },
+              {
+                "labelMd": "Rien de grave, seul $r$ se répète",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "MULTIPLE",
+            "promptMd": "Quels sont des avantages d'Ed25519 ?",
+            "explanationMd": "Nonce déterministe, clé publique de 32 octets, formules complètes. Comme toute courbe elliptique, Ed25519 n'est **pas** résistant à un ordinateur quantique.",
+            "choices": [
+              {
+                "labelMd": "Un nonce déterministe par conception",
+                "correct": true
+              },
+              {
+                "labelMd": "Une clé publique de 32 octets",
+                "correct": true
+              },
+              {
+                "labelMd": "Des formules d'addition complètes, sans cas particuliers",
+                "correct": true
+              },
+              {
+                "labelMd": "La résistance aux ordinateurs quantiques",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi passe-t-on le secret ECDH dans une fonction comme HKDF ?",
+            "explanationMd": "Le point partagé n'est pas uniformément aléatoire ; HKDF en extrait des clés uniformes et les lie au contexte du protocole.",
+            "choices": [
+              {
+                "labelMd": "Le point partagé n'est pas une clé uniforme ; HKDF en dérive des clés adaptées au contexte",
+                "correct": true
+              },
+              {
+                "labelMd": "Pour chiffrer le secret avant de l'envoyer",
+                "correct": false
+              },
+              {
+                "labelMd": "Ce n'est pas nécessaire",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Contre quoi un échange ECDH non authentifié protège-t-il ?",
+            "explanationMd": "Contre l'écoute passive seulement. Un homme du milieu actif peut mener un échange séparé avec chaque partie.",
+            "choices": [
+              {
+                "labelMd": "L'écoute passive",
+                "correct": true
+              },
+              {
+                "labelMd": "L'homme du milieu actif",
+                "correct": false
+              },
+              {
+                "labelMd": "Les deux",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle est la taille d'une signature Ed25519 ?",
+            "explanationMd": "64 octets (et 32 octets pour la clé publique).",
+            "choices": [
+              {
+                "labelMd": "64 octets",
+                "correct": true
+              },
+              {
+                "labelMd": "32 octets",
+                "correct": false
+              },
+              {
+                "labelMd": "256 octets",
+                "correct": false
+              },
+              {
+                "labelMd": "3309 octets",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

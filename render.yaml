@@ -1,0 +1,65 @@
+# Render Blueprint : API Rootwise (Spring Boot, image Docker de platform/api) à Francfort, à côté
+# de Supabase (eu-central-1). Le site est sur Vercel (platform/web) et relaie /api vers ce service.
+# Les secrets (sync: false) sont saisis dans le tableau de bord Render, jamais versionnés.
+# Guide complet : platform/DEPLOIEMENT.md
+services:
+  - type: web
+    name: rootwise-api
+    runtime: docker
+    region: frankfurt
+    # free : mise en veille après 15 min sans visite (30 à 60 s de réveil).
+    # 0.5c-512mb : toujours actif, recommandé pour une plateforme ouverte au public.
+    plan: free
+    rootDir: platform/api
+    dockerfilePath: platform/api/Dockerfile
+    dockerContext: platform/api
+    healthCheckPath: /actuator/health/readiness
+    autoDeployTrigger: commit
+    envVars:
+      # Base de données Supabase (Session pooler) : valeurs de platform/.env.
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_POOL_SIZE
+        value: "5"
+      # Fichiers : Supabase Storage (interface S3).
+      - key: S3_ENDPOINT
+        sync: false
+      - key: S3_REGION
+        value: eu-central-1
+      - key: S3_ACCESS_KEY
+        sync: false
+      - key: S3_SECRET_KEY
+        sync: false
+      - key: STORAGE_MAX_VIDEO
+        value: 50MB
+      # Sessions et certificats.
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CERT_SIGNING_KEY
+        sync: false
+      # Adresse publique du site (Vercel) : liens des e-mails et retour OAuth.
+      - key: APP_PUBLIC_URL
+        sync: false
+      # E-mails : relais SMTP authentifié (Brevo : smtp-relay.brevo.com, port 587).
+      - key: MAIL_HOST
+        sync: false
+      - key: MAIL_PORT
+        value: "587"
+      - key: MAIL_USERNAME
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: MAIL_SMTP_AUTH
+        value: "true"
+      - key: MAIL_STARTTLS
+        value: "true"
+      - key: MAIL_FROM
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false
+      - key: DEMO_DATA
+        value: "false"

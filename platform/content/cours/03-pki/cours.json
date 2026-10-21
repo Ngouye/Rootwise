@@ -1,0 +1,280 @@
+{
+  "title": "PKI et certificats X.509",
+  "summary": "Chaîne de confiance, anatomie d'un certificat, création d'une autorité de certification avec OpenSSL, validation, révocation et Certificate Transparency.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "pki",
+    "signature"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Pourquoi des certificats ?",
+      "lessons": [
+        {
+          "title": "Le problème de l'authenticité des clés",
+          "type": "TEXT",
+          "file": "1-1-authenticite.md",
+          "minutes": 10,
+          "freePreview": true
+        },
+        {
+          "title": "Vidéo : qu'est-ce qu'un certificat SSL/TLS ?",
+          "type": "YOUTUBE",
+          "youtube": "-dHbXLR-Mao",
+          "file": "1-2-video.md",
+          "minutes": 8
+        },
+        {
+          "title": "Anatomie d'un certificat X.509 v3",
+          "type": "TEXT",
+          "file": "1-3-x509.md",
+          "minutes": 15
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Qu'atteste un certificat X.509 ?",
+            "explanationMd": "Il lie une identité (un nom de domaine, une personne) à une clé publique, sous la signature d'une autorité de certification.",
+            "choices": [
+              {
+                "labelMd": "Qu'une clé publique appartient à une identité donnée, sous la signature d'une AC",
+                "correct": true
+              },
+              {
+                "labelMd": "Que le site est honnête et sans danger",
+                "correct": false
+              },
+              {
+                "labelMd": "Que la connexion est chiffrée avec AES-256",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quel champ les navigateurs vérifient-ils pour s'assurer que le certificat correspond au site demandé ?",
+            "explanationMd": "Le `subjectAltName` ; le CN du sujet n'est plus pris en compte par les navigateurs modernes.",
+            "choices": [
+              {
+                "labelMd": "`subjectAltName`",
+                "correct": true
+              },
+              {
+                "labelMd": "Le CN de l'`issuer`",
+                "correct": false
+              },
+              {
+                "labelMd": "`serialNumber`",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi les AC utilisent-elles des certificats intermédiaires ?",
+            "explanationMd": "La clé racine reste hors ligne ; un intermédiaire compromis peut être révoqué sans remplacer la racine préinstallée partout.",
+            "choices": [
+              {
+                "labelMd": "Pour garder la clé racine hors ligne et pouvoir révoquer un intermédiaire compromis",
+                "correct": true
+              },
+              {
+                "labelMd": "Pour accélérer le chiffrement",
+                "correct": false
+              },
+              {
+                "labelMd": "Parce qu'un certificat ne peut contenir qu'un seul nom",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle partie d'un certificat l'AC signe-t-elle ?",
+            "explanationMd": "Le `tbsCertificate` (« to be signed ») : version, numéro de série, émetteur, validité, sujet, clé publique et extensions.",
+            "choices": [
+              {
+                "labelMd": "Le `tbsCertificate`",
+                "correct": true
+              },
+              {
+                "labelMd": "Uniquement la clé publique",
+                "correct": false
+              },
+              {
+                "labelMd": "Uniquement le nom du sujet",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Que signifie `basicConstraints=critical,CA:TRUE` ?",
+            "explanationMd": "Le certificat est celui d'une autorité : sa clé peut signer d'autres certificats. Un certificat de serveur porte `CA:FALSE`.",
+            "choices": [
+              {
+                "labelMd": "La clé du certificat peut signer d'autres certificats",
+                "correct": true
+              },
+              {
+                "labelMd": "Le certificat est chiffré",
+                "correct": false
+              },
+              {
+                "labelMd": "Le certificat est révoqué",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Émettre, valider, révoquer",
+      "lessons": [
+        {
+          "title": "Créer sa propre autorité de certification avec OpenSSL",
+          "type": "TEXT",
+          "file": "2-1-ac-openssl.md",
+          "minutes": 20
+        },
+        {
+          "title": "Valider une chaîne et révoquer un certificat",
+          "type": "TEXT",
+          "file": "2-2-validation.md",
+          "minutes": 15
+        },
+        {
+          "title": "Vidéo : comprendre les certificats (Yann Bidon)",
+          "type": "YOUTUBE",
+          "youtube": "FSq-FXx5dxU",
+          "file": "2-3-video.md",
+          "minutes": 32
+        },
+        {
+          "title": "NIST SP 800-57 : la gestion des clés",
+          "type": "PDF",
+          "document": "sp-800-57p1r5",
+          "file": "2-4-sp-800-57.md",
+          "minutes": 20
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Dans une demande de certificat (CSR), qui génère la clé privée du serveur ?",
+            "explanationMd": "Le serveur lui-même : la clé privée ne quitte jamais la machine. L'AC ne reçoit que la clé publique, dans la CSR signée.",
+            "choices": [
+              {
+                "labelMd": "Le serveur lui-même, et elle ne quitte jamais la machine",
+                "correct": true
+              },
+              {
+                "labelMd": "L'autorité de certification, qui l'envoie ensuite au serveur",
+                "correct": false
+              },
+              {
+                "labelMd": "Le navigateur du client",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "MULTIPLE",
+            "promptMd": "Lesquels sont des mécanismes de révocation de certificats ?",
+            "explanationMd": "CRL, OCSP et l'agrafage OCSP servent à la révocation. CAA est un enregistrement DNS qui désigne les AC autorisées à émettre.",
+            "choices": [
+              {
+                "labelMd": "Les listes de révocation (CRL)",
+                "correct": true
+              },
+              {
+                "labelMd": "OCSP",
+                "correct": true
+              },
+              {
+                "labelMd": "L'agrafage OCSP",
+                "correct": true
+              },
+              {
+                "labelMd": "Les enregistrements DNS CAA",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "À quoi sert Certificate Transparency ?",
+            "explanationMd": "Tous les certificats publics sont inscrits dans des journaux en ajout seul : un certificat émis frauduleusement devient visible.",
+            "choices": [
+              {
+                "labelMd": "À journaliser publiquement les certificats émis pour détecter les émissions frauduleuses",
+                "correct": true
+              },
+              {
+                "labelMd": "À chiffrer les certificats",
+                "correct": false
+              },
+              {
+                "labelMd": "À rendre les clés privées publiques",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Vers quelle durée maximale le vote SC-081 du CA/Browser Forum fait-il converger les certificats TLS publics en 2029 ?",
+            "explanationMd": "200 jours depuis mars 2026, 100 jours en 2027, 47 jours en 2029 : le renouvellement doit être automatisé.",
+            "choices": [
+              {
+                "labelMd": "47 jours",
+                "correct": true
+              },
+              {
+                "labelMd": "398 jours",
+                "correct": false
+              },
+              {
+                "labelMd": "3 ans",
+                "correct": false
+              },
+              {
+                "labelMd": "7 jours",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "`openssl verify -CAfile ac.pem site.pem` affiche « unable to get local issuer certificate ». Quelle est la cause la plus probable ?",
+            "explanationMd": "Le vérificateur ne trouve pas l'émetteur de `site.pem` parmi les AC fournies : autre AC, ou certificat intermédiaire manquant.",
+            "choices": [
+              {
+                "labelMd": "`site.pem` n'a pas été signé par cette AC, ou un intermédiaire manque",
+                "correct": true
+              },
+              {
+                "labelMd": "Le certificat a expiré",
+                "correct": false
+              },
+              {
+                "labelMd": "La clé privée du site est trop courte",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

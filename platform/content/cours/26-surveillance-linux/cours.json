@@ -1,0 +1,262 @@
+{
+  "title": "Surveiller Linux en 24 outils",
+  "summary": "Processus, mémoire, disques, réseau et sécurité : diagnostiquer et superviser les performances d'un serveur Linux avec 24 outils, de top à Netdata, et la méthode des 60 premières secondes.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "linux",
+    "supervision"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Introduction et vue d'ensemble",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "type": "TEXT",
+          "file": "1-01-introduction.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "La surveillance en un coup d'œil",
+          "type": "TEXT",
+          "file": "1-02-la-surveillance-en-un-coup-d-il.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "Du diagnostic à la supervision",
+          "type": "TEXT",
+          "file": "1-03-du-diagnostic-a-la-supervision.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Processus, CPU et mémoire",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : processus, CPU et mémoire",
+          "type": "TEXT",
+          "file": "2-01-vue-d-ensemble-processus-cpu-et-memoire.md",
+          "minutes": 2
+        },
+        {
+          "title": "01 · top — Le moniteur de processus de référence",
+          "type": "TEXT",
+          "file": "2-02-01-top-le-moniteur-de-processus-de-reference.md",
+          "minutes": 2
+        },
+        {
+          "title": "02 · htop — Une version interactive et colorée",
+          "type": "TEXT",
+          "file": "2-03-02-htop-une-version-interactive-et-coloree.md",
+          "minutes": 2
+        },
+        {
+          "title": "03 · atop — Toutes les ressources, avec historique",
+          "type": "TEXT",
+          "file": "2-04-03-atop-toutes-les-ressources-avec-historique.md",
+          "minutes": 2
+        },
+        {
+          "title": "04 · btop — Le moniteur moderne et graphique",
+          "type": "TEXT",
+          "file": "2-05-04-btop-le-moniteur-moderne-et-graphique.md",
+          "minutes": 2
+        },
+        {
+          "title": "05 · vmstat — Mémoire virtuelle, swap et CPU",
+          "type": "TEXT",
+          "file": "2-06-05-vmstat-memoire-virtuelle-swap-et-cpu.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Disques et fichiers",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : disques et fichiers",
+          "type": "TEXT",
+          "file": "3-01-vue-d-ensemble-disques-et-fichiers.md",
+          "minutes": 2
+        },
+        {
+          "title": "06 · iostat — Débit, latence et saturation des disques",
+          "type": "TEXT",
+          "file": "3-02-06-iostat-debit-latence-et-saturation-des-disques.md",
+          "minutes": 2
+        },
+        {
+          "title": "07 · iotop — Les E/S disque par processus",
+          "type": "TEXT",
+          "file": "3-03-07-iotop-les-e-s-disque-par-processus.md",
+          "minutes": 2
+        },
+        {
+          "title": "08 · lsof — Les fichiers et sockets ouverts",
+          "type": "TEXT",
+          "file": "3-04-08-lsof-les-fichiers-et-sockets-ouverts.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Réseau",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : réseau",
+          "type": "TEXT",
+          "file": "4-01-vue-d-ensemble-reseau.md",
+          "minutes": 2
+        },
+        {
+          "title": "09 · ss — Sockets, ports et connexions",
+          "type": "TEXT",
+          "file": "4-02-09-ss-sockets-ports-et-connexions.md",
+          "minutes": 2
+        },
+        {
+          "title": "10 · tcpdump — Capturer et filtrer les paquets",
+          "type": "TEXT",
+          "file": "4-03-10-tcpdump-capturer-et-filtrer-les-paquets.md",
+          "minutes": 2
+        },
+        {
+          "title": "11 · iftop — La bande passante par hôte",
+          "type": "TEXT",
+          "file": "4-04-11-iftop-la-bande-passante-par-hote.md",
+          "minutes": 2
+        },
+        {
+          "title": "12 · nethogs — La bande passante par processus",
+          "type": "TEXT",
+          "file": "4-05-12-nethogs-la-bande-passante-par-processus.md",
+          "minutes": 2
+        },
+        {
+          "title": "13 · iptraf-ng — Statistiques d'interface et trafic IP",
+          "type": "TEXT",
+          "file": "4-06-13-iptraf-ng-statistiques-d-interface-et-trafic-ip.md",
+          "minutes": 2
+        },
+        {
+          "title": "14 · vnstat — L'historique du trafic",
+          "type": "TEXT",
+          "file": "4-07-14-vnstat-l-historique-du-trafic.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Vue d'ensemble, matériel et utilisateurs",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : bilan, matériel et utilisateurs",
+          "type": "TEXT",
+          "file": "5-01-vue-d-ensemble-bilan-materiel-et-utilisateurs.md",
+          "minutes": 2
+        },
+        {
+          "title": "15 · nmon — Vue d'ensemble interactive et capture",
+          "type": "TEXT",
+          "file": "5-02-15-nmon-vue-d-ensemble-interactive-et-capture.md",
+          "minutes": 2
+        },
+        {
+          "title": "16 · collectl — Collecte multi-ressources en continu",
+          "type": "TEXT",
+          "file": "5-03-16-collectl-collecte-multi-ressources-en-continu.md",
+          "minutes": 2
+        },
+        {
+          "title": "17 · s-tui — Fréquence, température et test de charge",
+          "type": "TEXT",
+          "file": "5-04-17-s-tui-frequence-temperature-et-test-de-charge.md",
+          "minutes": 2
+        },
+        {
+          "title": "18 · psacct et acct — L'activité des utilisateurs",
+          "type": "TEXT",
+          "file": "5-05-18-psacct-et-acct-l-activite-des-utilisateurs.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Supervision et sécurité",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : supervision et sécurité",
+          "type": "TEXT",
+          "file": "6-01-vue-d-ensemble-supervision-et-securite.md",
+          "minutes": 2
+        },
+        {
+          "title": "19 · Monit — Surveiller et redémarrer les services",
+          "type": "TEXT",
+          "file": "6-02-19-monit-surveiller-et-redemarrer-les-services.md",
+          "minutes": 2
+        },
+        {
+          "title": "20 · Monitorix — Graphiques système et réseau",
+          "type": "TEXT",
+          "file": "6-03-20-monitorix-graphiques-systeme-et-reseau.md",
+          "minutes": 2
+        },
+        {
+          "title": "21 · Netdata — Tableau de bord temps réel",
+          "type": "TEXT",
+          "file": "6-04-21-netdata-tableau-de-bord-temps-reel.md",
+          "minutes": 2
+        },
+        {
+          "title": "22 · Nagios — Supervision de parc avec alertes",
+          "type": "TEXT",
+          "file": "6-05-22-nagios-supervision-de-parc-avec-alertes.md",
+          "minutes": 2
+        },
+        {
+          "title": "23 · arpwatch — Surveiller les couples IP / MAC",
+          "type": "TEXT",
+          "file": "6-06-23-arpwatch-surveiller-les-couples-ip-mac.md",
+          "minutes": 2
+        },
+        {
+          "title": "24 · Suricata — Détection d'intrusions réseau",
+          "type": "TEXT",
+          "file": "6-07-24-suricata-detection-d-intrusions-reseau.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Conclusion et annexes",
+      "lessons": [
+        {
+          "title": "Conclusion",
+          "type": "TEXT",
+          "file": "7-01-conclusion.md",
+          "minutes": 2
+        },
+        {
+          "title": "Annexes : aide-mémoire et références",
+          "type": "TEXT",
+          "file": "7-02-annexes-aide-memoire-et-references.md",
+          "minutes": 5
+        },
+        {
+          "title": "Le guide complet en PDF",
+          "type": "PDF",
+          "file": "7-03-le-guide-complet-en-pdf.md",
+          "minutes": 40,
+          "pdf": "Guide_Surveillance_Linux_Ngouye_GNING_illustre-1.pdf"
+        }
+      ]
+    }
+  ]
+}

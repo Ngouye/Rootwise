@@ -1,0 +1,163 @@
+{
+  "title": "Chiffrement symétrique : de César à AES",
+  "extends": true,
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Les fondations",
+      "lessons": [
+        {
+          "title": "Le chiffre de César et l'analyse de fréquences",
+          "type": "TEXT",
+          "file": "0-cesar.md",
+          "minutes": 8
+        }
+      ]
+    },
+    {
+      "title": "AES en pratique",
+      "lessons": [
+        {
+          "title": "Les erreurs qui cassent tout",
+          "type": "TEXT",
+          "file": "0-erreurs.md",
+          "minutes": 6
+        }
+      ]
+    },
+    {
+      "title": "Pour aller plus loin : vidéos et normes officielles",
+      "lessons": [
+        {
+          "title": "Vidéo : le chiffrement de César (Exo7)",
+          "type": "YOUTUBE",
+          "youtube": "g8RmT-CwTMo",
+          "file": "1-video-cesar.md",
+          "minutes": 18
+        },
+        {
+          "title": "Vidéo : AES expliqué",
+          "type": "YOUTUBE",
+          "youtube": "5ZEYKk8BHcE",
+          "file": "2-video-aes.md",
+          "minutes": 11
+        },
+        {
+          "title": "Norme FIPS 197 (NIST) : AES",
+          "type": "PDF",
+          "document": "fips-197",
+          "file": "3-fips-197.md",
+          "minutes": 25
+        },
+        {
+          "title": "NIST SP 800-38D : le mode GCM",
+          "type": "PDF",
+          "document": "sp-800-38d",
+          "file": "4-sp-800-38d.md",
+          "minutes": 20
+        },
+        {
+          "title": "Guide ANSSI de sélection d'algorithmes cryptographiques",
+          "type": "PDF",
+          "document": "anssi-selection",
+          "file": "5-anssi-selection.md",
+          "minutes": 25
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Combien de tours AES applique-t-il avec une clé de 256 bits ?",
+            "explanationMd": "10 tours pour AES-128, 12 pour AES-192, 14 pour AES-256.",
+            "choices": [
+              {
+                "labelMd": "14",
+                "correct": true
+              },
+              {
+                "labelMd": "10",
+                "correct": false
+              },
+              {
+                "labelMd": "12",
+                "correct": false
+              },
+              {
+                "labelMd": "16",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle transformation d'AES est la seule non linéaire ?",
+            "explanationMd": "`SubBytes`, la substitution par la S-box, apporte la non-linéarité (confusion). Les autres opérations sont linéaires.",
+            "choices": [
+              {
+                "labelMd": "`SubBytes`",
+                "correct": true
+              },
+              {
+                "labelMd": "`ShiftRows`",
+                "correct": false
+              },
+              {
+                "labelMd": "`MixColumns`",
+                "correct": false
+              },
+              {
+                "labelMd": "`AddRoundKey`",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Avec des IV aléatoires, combien de messages au plus la SP 800-38D autorise-t-elle à chiffrer en GCM avec une même clé ?",
+            "explanationMd": "$2^{32}$ (§ 8.3) : au-delà, la probabilité de répéter un IV devient trop élevée.",
+            "choices": [
+              {
+                "labelMd": "$2^{32}$",
+                "correct": true
+              },
+              {
+                "labelMd": "$2^{64}$",
+                "correct": false
+              },
+              {
+                "labelMd": "$2^{128}$",
+                "correct": false
+              },
+              {
+                "labelMd": "Aucune limite",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Selon le guide ANSSI de sélection, que signifie la mention « obsolescent » ?",
+            "explanationMd": "Ces mécanismes figurent dans le guide en raison de leur très large déploiement ; ils offrent au moins 100 bits de sécurité, acceptables à court terme, mais leur emploi « devrait être abandonné dans la mesure du possible au profit de mécanismes recommandés ».",
+            "choices": [
+              {
+                "labelMd": "Encore toléré à cause de son large déploiement, mais à remplacer par un mécanisme recommandé",
+                "correct": true
+              },
+              {
+                "labelMd": "Interdit immédiatement",
+                "correct": false
+              },
+              {
+                "labelMd": "Recommandé pour les nouveaux systèmes",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

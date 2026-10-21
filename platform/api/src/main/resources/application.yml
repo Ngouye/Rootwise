@@ -1,0 +1,121 @@
+# Les valeurs par défaut ciblent l'environnement local (platform/compose.yaml).
+# En production, chaque variable doit être fournie par l'environnement.
+spring:
+  application:
+    name: crypto-platform-api
+  # Base de production : Supabase (PostgreSQL), via son pooler Supavisor en mode session
+  # (port 5432 de aws-*.pooler.supabase.com, jamais le mode transaction 6543 : le search_path
+  # ci-dessous et les requêtes préparées exigent une session). Voir infra/supabase/README.md.
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/cryptoplatform}
+    username: ${DB_USER:cryptoplatform}
+    password: ${DB_PASSWORD:cryptoplatform}
+    hikari:
+      # Les tables vivent dans un schéma dédié : chez Supabase, le schéma « public » est publié
+      # par l'API de données (PostgREST) ; « extensions » contient citext s'il y était déjà activé.
+      connection-init-sql: SET search_path TO ${DB_SCHEMA:app}, extensions
+      maximum-pool-size: ${DB_POOL_SIZE:10}   # le pooler Supabase gratuit accepte ~15 sessions
+      max-lifetime: 600000                    # 10 min : recyclée avant toute coupure côté pooler
+      # Connexions inactives vérifiées chaque minute : une connexion coupée par le réseau (Wi-Fi,
+      # veille, redémarrage de Docker) est remplacée avant qu'une requête ne tombe dessus.
+      keepalive-time: 60000
+      data-source-properties:
+        tcpKeepAlive: true
+        # Paramètres texte typés par PostgreSQL : les comparaisons sur les colonnes citext
+        # restent insensibles à la casse et utilisent leurs index.
+        stringtype: unspecified
+  flyway:
+    schemas: ${DB_SCHEMA:app}     # créé au premier démarrage, avec l'historique des migrations
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate          # le schéma appartient à Flyway, jamais à Hibernate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+      hibernate.default_batch_fetch_size: 50   # charge les chapitres/leçons de plusieurs cours en une requête
+  servlet:
+    multipart:
+      max-file-size: 1GB           # limite globale ; chaque type a sa propre limite (app.storage.limits)
+      max-request-size: 1GB
+      file-size-threshold: 2MB     # au-delà, l'envoi est écrit sur disque, pas gardé en mémoire
+      # Le contenu n'est lu que par l'endpoint d'envoi du studio, lui-même réservé aux
+      # créateurs dès le filtre de sécurité (voir SecurityConfig) : un membre ne peut pas
+      # remplir le disque en envoyant de gros fichiers ailleurs.
+      resolve-lazily: true
+  mail:
+    host: ${MAIL_HOST:localhost}   # Mailpit en local : http://localhost:8025 ; en production, un relais SMTP (Brevo…)
+    port: ${MAIL_PORT:1025}
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      "[mail.smtp.auth]": ${MAIL_SMTP_AUTH:false}          # true avec un relais SMTP authentifié
+      "[mail.smtp.starttls.enable]": ${MAIL_STARTTLS:false}  # true en production (port 587)
+      "[mail.smtp.starttls.required]": ${MAIL_STARTTLS:false}
+      "[mail.smtp.connectiontimeout]": 10000
+      "[mail.smtp.timeout]": 10000
+      "[mail.smtp.writetimeout]": 10000
+  mvc:
+    problemdetails:
+      enabled: true               # erreurs au format RFC 9457 (application/problem+json)
+  jackson:
+    deserialization:
+      # Jackson 3 rejette par défaut un champ booléen/numérique absent du JSON ;
+      # on garde le comportement classique : absent = false / 0.
+      fail-on-null-for-primitives: false
+  modulith:
+    events:
+      republish-outstanding-events-on-restart: true
+      completion-mode: delete     # les événements traités ne sont pas conservés
+
+server:
+  port: ${PORT:8080}
+  forward-headers-strategy: framework
+  shutdown: graceful
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus, modulith
+  endpoint:
+    health:
+      probes:
+        enabled: true
+      show-details: never
+  health:
+    mail:
+      enabled: false   # une panne SMTP ne doit pas faire déclarer l'API hors service (e-mails rejoués ensuite)
+
+app:
+  name: Rootwise
+  public-url: ${APP_PUBLIC_URL:http://localhost:3000}
+  mail-from: ${MAIL_FROM:Rootwise <no-reply@rootwise.local>}
+  auth:
+    jwt-secret: ${JWT_SECRET:}     # openssl rand -base64 32 ; vide = clé éphémère (développement)
+    secure-cookies: ${COOKIE_SECURE:true}
+    oauth:
+      google:
+        client-id: ${GOOGLE_CLIENT_ID:}
+        client-secret: ${GOOGLE_CLIENT_SECRET:}
+      github:
+        client-id: ${GITHUB_CLIENT_ID:}
+        client-secret: ${GITHUB_CLIENT_SECRET:}
+  users:
+    admin-emails: ${ADMIN_EMAILS:} # adresses promues ADMIN dès qu'elles sont vérifiées
+  # Fichiers (vidéos, PDF, images) : Supabase Storage par son interface S3
+  # (https://<référence>.storage.supabase.co/storage/v1/s3, région du projet) ; voir infra/supabase.
+  storage:
+    type: ${STORAGE_TYPE:s3}
+    endpoint: ${S3_ENDPOINT:http://localhost:8333}   # SeaweedFS hors ligne ; vide = AWS
+    region: ${S3_REGION:us-east-1}
+    access-key: ${S3_ACCESS_KEY:cryptoplatform}
+    secret-key: ${S3_SECRET_KEY:cryptoplatform-dev-secret}
+    bucket: ${S3_BUCKET:cryptoplatform-media}
+    limits:                                          # plan gratuit Supabase : 50 Mo par fichier au plus
+      video: ${STORAGE_MAX_VIDEO:1GB}
+      pdf: ${STORAGE_MAX_PDF:50MB}
+      image: ${STORAGE_MAX_IMAGE:5MB}
+  certificates:
+    signing-key: ${CERT_SIGNING_KEY:}   # clé privée Ed25519 PKCS#8 en Base64 ; vide = clé éphémère (développement)
+  demo:
+    enabled: ${DEMO_DATA:false}         # crée deux cours d'exemple au premier démarrage

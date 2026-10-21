@@ -1,0 +1,179 @@
+{
+  "title": "Surveiller Node.js avec PM2",
+  "summary": "Terminal, tableau de bord web PM2 Plus et ressources du serveur : superviser vos applications Node.js en production avec PM2 7, en 13 fiches pratiques.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "linux",
+    "supervision"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Introduction et vue d'ensemble",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "type": "TEXT",
+          "file": "1-01-introduction.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "PM2 en un coup d'œil",
+          "type": "TEXT",
+          "file": "1-02-pm2-en-un-coup-d-il.md",
+          "minutes": 2,
+          "freePreview": true
+        }
+      ]
+    },
+    {
+      "title": "Lancer et observer",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : lancer et observer",
+          "type": "TEXT",
+          "file": "2-01-vue-d-ensemble-lancer-et-observer.md",
+          "minutes": 2
+        },
+        {
+          "title": "01 · pm2 start — Lancer et nommer l'application",
+          "type": "TEXT",
+          "file": "2-02-01-pm2-start-lancer-et-nommer-l-application.md",
+          "minutes": 2
+        },
+        {
+          "title": "02 · pm2 list — Lire l'état des processus",
+          "type": "TEXT",
+          "file": "2-03-02-pm2-list-lire-l-etat-des-processus.md",
+          "minutes": 2
+        },
+        {
+          "title": "03 · pm2 show — Inspecter un processus en détail",
+          "type": "TEXT",
+          "file": "2-04-03-pm2-show-inspecter-un-processus-en-detail.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Surveiller dans le terminal",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : surveiller dans le terminal",
+          "type": "TEXT",
+          "file": "3-01-vue-d-ensemble-surveiller-dans-le-terminal.md",
+          "minutes": 2
+        },
+        {
+          "title": "04 · pm2 monit — Le tableau de bord du terminal",
+          "type": "TEXT",
+          "file": "3-02-04-pm2-monit-le-tableau-de-bord-du-terminal.md",
+          "minutes": 2
+        },
+        {
+          "title": "05 · pm2 logs — Suivre les journaux en direct",
+          "type": "TEXT",
+          "file": "3-03-05-pm2-logs-suivre-les-journaux-en-direct.md",
+          "minutes": 2
+        },
+        {
+          "title": "06 · tx2 — Publier des métriques personnalisées",
+          "type": "TEXT",
+          "file": "3-04-06-tx2-publier-des-metriques-personnalisees.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Le tableau de bord web PM2 Plus",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : le tableau de bord web PM2 Plus",
+          "type": "TEXT",
+          "file": "4-01-vue-d-ensemble-le-tableau-de-bord-web-pm2-plus.md",
+          "minutes": 2
+        },
+        {
+          "title": "07 · app.pm2.io — Créer un compte et un bucket",
+          "type": "TEXT",
+          "file": "4-02-07-app-pm2-io-creer-un-compte-et-un-bucket.md",
+          "minutes": 2
+        },
+        {
+          "title": "08 · pm2 link — Relier le serveur à PM2 Plus",
+          "type": "TEXT",
+          "file": "4-03-08-pm2-link-relier-le-serveur-a-pm2-plus.md",
+          "minutes": 2
+        },
+        {
+          "title": "09 · Tableau de bord — Lire le tableau de bord web",
+          "type": "TEXT",
+          "file": "4-04-09-tableau-de-bord-lire-le-tableau-de-bord-web.md",
+          "minutes": 2
+        },
+        {
+          "title": "10 · pm2 unlink — Détacher un serveur",
+          "type": "TEXT",
+          "file": "4-05-10-pm2-unlink-detacher-un-serveur.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Surveiller les ressources du serveur",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : les ressources du serveur",
+          "type": "TEXT",
+          "file": "5-01-vue-d-ensemble-les-ressources-du-serveur.md",
+          "minutes": 2
+        },
+        {
+          "title": "11 · pm2 install — Installer pm2-server-monit",
+          "type": "TEXT",
+          "file": "5-02-11-pm2-install-installer-pm2-server-monit.md",
+          "minutes": 2
+        },
+        {
+          "title": "12 · pm2 set — Régler le module",
+          "type": "TEXT",
+          "file": "5-03-12-pm2-set-regler-le-module.md",
+          "minutes": 2
+        },
+        {
+          "title": "13 · pm2 uninstall — Retirer un module",
+          "type": "TEXT",
+          "file": "5-04-13-pm2-uninstall-retirer-un-module.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Conclusion et annexes",
+      "lessons": [
+        {
+          "title": "Conclusion",
+          "type": "TEXT",
+          "file": "6-01-conclusion.md",
+          "minutes": 2
+        },
+        {
+          "title": "Annexes : aide-mémoire et références",
+          "type": "TEXT",
+          "file": "6-02-annexes-aide-memoire-et-references.md",
+          "minutes": 6
+        },
+        {
+          "title": "Le guide complet en PDF",
+          "type": "PDF",
+          "file": "6-03-le-guide-complet-en-pdf.md",
+          "minutes": 30,
+          "pdf": "Guide_Surveillance_NodeJS_PM2_Ngouye_GNING_illustre.pdf"
+        }
+      ]
+    }
+  ]
+}

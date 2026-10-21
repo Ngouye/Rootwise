@@ -1,0 +1,232 @@
+{
+  "title": "La commande usermod : comptes et groupes",
+  "summary": "Gérer utilisateurs, groupes, UID, shells et expiration sous Linux en toute sécurité : 16 fiches pratiques, les pièges à éviter et une méthode sûre pour la production.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "linux",
+    "comptes"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Introduction et vue d'ensemble",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "type": "TEXT",
+          "file": "1-01-introduction.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "usermod en un coup d'œil",
+          "type": "TEXT",
+          "file": "1-02-usermod-en-un-coup-d-il.md",
+          "minutes": 2,
+          "freePreview": true
+        }
+      ]
+    },
+    {
+      "title": "Comprendre et préparer",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : comprendre et préparer",
+          "type": "TEXT",
+          "file": "2-01-vue-d-ensemble-comprendre-et-preparer.md",
+          "minutes": 2
+        },
+        {
+          "title": "1.1 · Ce que usermod modifie sur le disque",
+          "type": "TEXT",
+          "file": "2-02-1-1-ce-que-usermod-modifie-sur-le-disque.md",
+          "minutes": 2
+        },
+        {
+          "title": "1.2 · Les quatre vérifications préalables",
+          "type": "TEXT",
+          "file": "2-03-1-2-les-quatre-verifications-prealables.md",
+          "minutes": 2
+        },
+        {
+          "title": "1.3 · Sauvegarder les bases de comptes",
+          "type": "TEXT",
+          "file": "2-04-1-3-sauvegarder-les-bases-de-comptes.md",
+          "minutes": 2
+        },
+        {
+          "title": "1.4 · -G ou -aG : vérifier avant et après",
+          "type": "TEXT",
+          "file": "2-05-1-4-g-ou-ag-verifier-avant-et-apres.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Identité et profil du compte",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : identité et profil",
+          "type": "TEXT",
+          "file": "3-01-vue-d-ensemble-identite-et-profil.md",
+          "minutes": 2
+        },
+        {
+          "title": "01 · usermod -c — Mettre à jour le commentaire GECOS",
+          "type": "TEXT",
+          "file": "3-02-01-usermod-c-mettre-a-jour-le-commentaire-gecos.md",
+          "minutes": 2
+        },
+        {
+          "title": "02 · usermod -d — Changer seulement le chemin du répertoire",
+          "type": "TEXT",
+          "file": "3-03-02-usermod-d-changer-seulement-le-chemin-du-repert.md",
+          "minutes": 2
+        },
+        {
+          "title": "03 · usermod -d -m — Déplacer le répertoire et son contenu",
+          "type": "TEXT",
+          "file": "3-04-03-usermod-d-m-deplacer-le-repertoire-et-son-conte.md",
+          "minutes": 2
+        },
+        {
+          "title": "04 · usermod -l — Renommer un compte",
+          "type": "TEXT",
+          "file": "3-05-04-usermod-l-renommer-un-compte.md",
+          "minutes": 2
+        },
+        {
+          "title": "05 · usermod -s — Changer le shell de connexion",
+          "type": "TEXT",
+          "file": "3-06-05-usermod-s-changer-le-shell-de-connexion.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Gérer les groupes",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : gérer les groupes",
+          "type": "TEXT",
+          "file": "4-01-vue-d-ensemble-gerer-les-groupes.md",
+          "minutes": 2
+        },
+        {
+          "title": "06 · usermod -g — Changer le groupe principal",
+          "type": "TEXT",
+          "file": "4-02-06-usermod-g-changer-le-groupe-principal.md",
+          "minutes": 2
+        },
+        {
+          "title": "07 · usermod -aG — Ajouter des groupes secondaires",
+          "type": "TEXT",
+          "file": "4-03-07-usermod-ag-ajouter-des-groupes-secondaires.md",
+          "minutes": 2
+        },
+        {
+          "title": "08 · usermod -rG — Retirer un groupe secondaire",
+          "type": "TEXT",
+          "file": "4-04-08-usermod-rg-retirer-un-groupe-secondaire.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Sécurité et cycle de vie du compte",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : sécurité et cycle de vie",
+          "type": "TEXT",
+          "file": "5-01-vue-d-ensemble-securite-et-cycle-de-vie.md",
+          "minutes": 2
+        },
+        {
+          "title": "09 · usermod -e — Fixer la date d'expiration du compte",
+          "type": "TEXT",
+          "file": "5-02-09-usermod-e-fixer-la-date-d-expiration-du-compte.md",
+          "minutes": 2
+        },
+        {
+          "title": "10 · usermod -f — Délai d'inactivité après expiration du mot de passe",
+          "type": "TEXT",
+          "file": "5-03-10-usermod-f-delai-d-inactivite-apres-expiration-d.md",
+          "minutes": 2
+        },
+        {
+          "title": "11 · usermod -L et -U — Verrouiller et déverrouiller",
+          "type": "TEXT",
+          "file": "5-04-11-usermod-l-et-u-verrouiller-et-deverrouiller.md",
+          "minutes": 2
+        },
+        {
+          "title": "12 · usermod -p — Définir un mot de passe correctement",
+          "type": "TEXT",
+          "file": "5-05-12-usermod-p-definir-un-mot-de-passe-correctement.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Identifiants et cas avancés",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : identifiants et cas avancés",
+          "type": "TEXT",
+          "file": "6-01-vue-d-ensemble-identifiants-et-cas-avances.md",
+          "minutes": 2
+        },
+        {
+          "title": "13 · usermod -u — Changer l'UID et corriger les fichiers",
+          "type": "TEXT",
+          "file": "6-02-13-usermod-u-changer-l-uid-et-corriger-les-fichier.md",
+          "minutes": 2
+        },
+        {
+          "title": "14 · --add-subuids — Plages d'ID pour les conteneurs sans root",
+          "type": "TEXT",
+          "file": "6-03-14-add-subuids-plages-d-id-pour-les-conteneurs-san.md",
+          "minutes": 2
+        },
+        {
+          "title": "15 · usermod -Z — Associer un utilisateur SELinux",
+          "type": "TEXT",
+          "file": "6-04-15-usermod-z-associer-un-utilisateur-selinux.md",
+          "minutes": 2
+        },
+        {
+          "title": "16 · Modifications combinées — Plusieurs attributs en une commande",
+          "type": "TEXT",
+          "file": "6-05-16-modifications-combinees-plusieurs-attributs-en.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Conclusion et annexes",
+      "lessons": [
+        {
+          "title": "Conclusion",
+          "type": "TEXT",
+          "file": "7-01-conclusion.md",
+          "minutes": 2
+        },
+        {
+          "title": "Annexes : aide-mémoire et références",
+          "type": "TEXT",
+          "file": "7-02-annexes-aide-memoire-et-references.md",
+          "minutes": 5
+        },
+        {
+          "title": "Le guide complet en PDF",
+          "type": "PDF",
+          "file": "7-03-le-guide-complet-en-pdf.md",
+          "minutes": 35,
+          "pdf": "Guide_usermod_Ngouye_GNING_illustre-1.pdf"
+        }
+      ]
+    }
+  ]
+}

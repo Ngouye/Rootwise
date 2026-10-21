@@ -1,0 +1,14 @@
+{
+  "identities": [
+    {
+      "name": "cryptoplatform-api",
+      "credentials": [
+        {
+          "accessKey": "cryptoplatform",
+          "secretKey": "cryptoplatform-dev-secret"
+        }
+      ],
+      "actions": ["Admin", "Read", "Write", "List", "Tagging"]
+    }
+  ]
+}

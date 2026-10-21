@@ -1,0 +1,292 @@
+{
+  "title": "TLS 1.3 : sécuriser les communications",
+  "summary": "Ce que garantit TLS, la poignée de main TLS 1.3 message par message, l'observation d'une vraie connexion et la configuration d'un serveur selon l'ANSSI.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "tls",
+    "pki"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Le protocole TLS 1.3",
+      "lessons": [
+        {
+          "title": "Ce que TLS garantit (et ce qu'il ne cache pas)",
+          "type": "TEXT",
+          "file": "1-1-garanties.md",
+          "minutes": 10,
+          "freePreview": true
+        },
+        {
+          "title": "Vidéo : SSL/TLS expliqué avec des emojis",
+          "type": "YOUTUBE",
+          "youtube": "7W7WPMX7arI",
+          "file": "1-2-video.md",
+          "minutes": 10,
+          "freePreview": true
+        },
+        {
+          "title": "La poignée de main TLS 1.3 pas à pas",
+          "type": "TEXT",
+          "file": "1-3-handshake.md",
+          "minutes": 20
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Combien d'allers-retours faut-il à TLS 1.3 pour établir une nouvelle connexion (hors 0-RTT) ?",
+            "explanationMd": "Un seul (1-RTT) : le client envoie sa clé éphémère dès le ClientHello.",
+            "choices": [
+              {
+                "labelMd": "Un",
+                "correct": true
+              },
+              {
+                "labelMd": "Deux",
+                "correct": false
+              },
+              {
+                "labelMd": "Trois",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quel message prouve que le serveur possède la clé privée de son certificat ?",
+            "explanationMd": "`CertificateVerify` contient une signature, avec cette clé, de l'empreinte de tous les messages échangés.",
+            "choices": [
+              {
+                "labelMd": "`CertificateVerify`",
+                "correct": true
+              },
+              {
+                "labelMd": "`Certificate`",
+                "correct": false
+              },
+              {
+                "labelMd": "`ServerHello`",
+                "correct": false
+              },
+              {
+                "labelMd": "`EncryptedExtensions`",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "MULTIPLE",
+            "promptMd": "Qu'est-ce que TLS 1.3 a supprimé par rapport aux versions précédentes ?",
+            "explanationMd": "L'échange de clés par chiffrement RSA, les modes CBC et la compression ont disparu. AES-GCM reste la suite la plus utilisée.",
+            "choices": [
+              {
+                "labelMd": "L'échange de clés par chiffrement RSA",
+                "correct": true
+              },
+              {
+                "labelMd": "Les modes de chiffrement CBC",
+                "correct": true
+              },
+              {
+                "labelMd": "La compression",
+                "correct": true
+              },
+              {
+                "labelMd": "AES-GCM",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Parmi ces informations, laquelle reste visible pour un observateur du réseau lors d'une connexion TLS 1.3 classique ?",
+            "explanationMd": "Le SNI (nom du site) circule en clair dans le ClientHello, sauf avec Encrypted Client Hello. Le certificat est chiffré en TLS 1.3.",
+            "choices": [
+              {
+                "labelMd": "Le nom du site demandé (SNI)",
+                "correct": true
+              },
+              {
+                "labelMd": "Le certificat du serveur",
+                "correct": false
+              },
+              {
+                "labelMd": "L'adresse de la page consultée",
+                "correct": false
+              },
+              {
+                "labelMd": "Les cookies envoyés",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi les données 0-RTT sont-elles déconseillées par l'ANSSI ?",
+            "explanationMd": "Elles peuvent être rejouées par un attaquant et ne bénéficient pas de la confidentialité persistante.",
+            "choices": [
+              {
+                "labelMd": "Elles peuvent être rejouées et n'ont pas de confidentialité persistante",
+                "correct": true
+              },
+              {
+                "labelMd": "Elles circulent en clair",
+                "correct": false
+              },
+              {
+                "labelMd": "Elles utilisent MD5",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Observer et configurer TLS",
+      "lessons": [
+        {
+          "title": "Observer une connexion TLS",
+          "type": "TEXT",
+          "file": "2-1-observer.md",
+          "minutes": 15
+        },
+        {
+          "title": "Configurer un serveur selon l'ANSSI",
+          "type": "TEXT",
+          "file": "2-2-configurer.md",
+          "minutes": 15
+        },
+        {
+          "title": "Vidéo : SSL/TLS pour les nuls (Julien Aubert)",
+          "type": "YOUTUBE",
+          "youtube": "k_ScPsb3WSk",
+          "file": "2-3-video.md",
+          "minutes": 33
+        },
+        {
+          "title": "Guide ANSSI : recommandations de sécurité relatives à TLS",
+          "type": "PDF",
+          "document": "anssi-tls",
+          "file": "2-4-anssi-tls.md",
+          "minutes": 30
+        },
+        {
+          "title": "NIST SP 800-52 rév. 2 : configurer TLS",
+          "type": "PDF",
+          "document": "sp-800-52r2",
+          "file": "2-5-sp-800-52.md",
+          "minutes": 20
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Que recommande l'ANSSI pour les versions du protocole ?",
+            "explanationMd": "R3 : privilégier TLS 1.3 et accepter TLS 1.2 ; R4 : ne pas utiliser SSLv2, SSLv3, TLS 1.0 et TLS 1.1.",
+            "choices": [
+              {
+                "labelMd": "Privilégier TLS 1.3 et accepter TLS 1.2",
+                "correct": true
+              },
+              {
+                "labelMd": "N'accepter que TLS 1.2",
+                "correct": false
+              },
+              {
+                "labelMd": "Accepter toutes les versions pour la compatibilité",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Dans la sortie de `openssl s_client`, la ligne `Negotiated TLS1.3 group: X25519MLKEM768` indique…",
+            "explanationMd": "Le groupe d'échange de clés négocié : ici un échange hybride X25519 + ML-KEM-768, résistant aux ordinateurs quantiques.",
+            "choices": [
+              {
+                "labelMd": "l'échange de clés utilisé, ici hybride classique et post-quantique",
+                "correct": true
+              },
+              {
+                "labelMd": "l'algorithme de signature du certificat",
+                "correct": false
+              },
+              {
+                "labelMd": "la suite de chiffrement symétrique",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "À quoi sert la variable d'environnement `SSLKEYLOGFILE` ?",
+            "explanationMd": "Le navigateur ou curl y écrivent les secrets de session, ce qui permet à Wireshark de déchiffrer votre propre trafic.",
+            "choices": [
+              {
+                "labelMd": "À enregistrer les secrets de session pour déchiffrer son propre trafic dans Wireshark",
+                "correct": true
+              },
+              {
+                "labelMd": "À désactiver TLS",
+                "correct": false
+              },
+              {
+                "labelMd": "À choisir le certificat du client",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi un serveur doit-il envoyer une chaîne de certificats complète (R34) ?",
+            "explanationMd": "Sans le certificat intermédiaire, beaucoup de clients ne peuvent pas remonter jusqu'à une racine de confiance et refusent la connexion.",
+            "choices": [
+              {
+                "labelMd": "Pour que le client puisse remonter jusqu'à une racine de confiance",
+                "correct": true
+              },
+              {
+                "labelMd": "Pour accélérer le chiffrement",
+                "correct": false
+              },
+              {
+                "labelMd": "Parce que la racine doit toujours être envoyée",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Que fait l'en-tête HTTP `Strict-Transport-Security` (HSTS) ?",
+            "explanationMd": "Il indique au navigateur de n'utiliser que HTTPS pour ce site pendant la durée indiquée, ce qui bloque les attaques de retour à HTTP.",
+            "choices": [
+              {
+                "labelMd": "Il oblige le navigateur à n'utiliser que HTTPS pour ce site",
+                "correct": true
+              },
+              {
+                "labelMd": "Il chiffre les en-têtes HTTP",
+                "correct": false
+              },
+              {
+                "labelMd": "Il active TLS 1.3",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

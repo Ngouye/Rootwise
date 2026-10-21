@@ -1,0 +1,437 @@
+{
+  "title": "Cryptographie post-quantique",
+  "summary": "La menace quantique, les nouveaux standards ML-KEM, ML-DSA et SLH-DSA, l'hybridation déjà déployée dans TLS 1.3 et la migration selon l'ANSSI.",
+  "level": "EXPERT",
+  "tags": [
+    "post-quantique",
+    "tls",
+    "signature"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "La menace quantique",
+      "lessons": [
+        {
+          "title": "Shor, Grover : ce qui tombe et ce qui tient",
+          "type": "TEXT",
+          "file": "1-1-menace.md",
+          "minutes": 15,
+          "freePreview": true
+        },
+        {
+          "title": "Vidéo : la cryptographie post-quantique en 3 minutes (CNRS)",
+          "type": "YOUTUBE",
+          "youtube": "YojW__NSEXI",
+          "file": "1-2-video-cnrs.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "Vidéo : post-quantique, revoyons les bases (Capitole du Libre)",
+          "type": "YOUTUBE",
+          "youtube": "8UHBAeGkDAs",
+          "file": "1-3-video-capitole.md",
+          "minutes": 26
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quel algorithme quantique casse RSA et la cryptographie sur courbes elliptiques ?",
+            "explanationMd": "L'algorithme de Shor résout la factorisation et le logarithme discret en temps polynomial. Grover ne fait qu'accélérer la recherche exhaustive.",
+            "choices": [
+              {
+                "labelMd": "L'algorithme de Shor",
+                "correct": true
+              },
+              {
+                "labelMd": "L'algorithme de Grover",
+                "correct": false
+              },
+              {
+                "labelMd": "L'algorithme de Dijkstra",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Lorsqu'une sécurité post-quantique est visée, quelle taille minimale de clé symétrique l'ANSSI recommande-t-elle ?",
+            "explanationMd": "*RecoPQTailleCléSym* : au moins 192 bits. AES-256 convient ; inutile de remplacer AES.",
+            "choices": [
+              {
+                "labelMd": "192 bits (AES-256 convient)",
+                "correct": true
+              },
+              {
+                "labelMd": "128 bits suffisent toujours, sans nuance",
+                "correct": false
+              },
+              {
+                "labelMd": "Il faut abandonner AES",
+                "correct": false
+              },
+              {
+                "labelMd": "3072 bits",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "MULTIPLE",
+            "promptMd": "Quels mécanismes seraient cassés par un ordinateur quantique suffisamment puissant ?",
+            "explanationMd": "RSA, ECDSA et X25519 reposent sur la factorisation ou le logarithme discret (Shor). AES-256 n'est qu'affaibli par Grover et reste sûr.",
+            "choices": [
+              {
+                "labelMd": "RSA",
+                "correct": true
+              },
+              {
+                "labelMd": "ECDSA",
+                "correct": true
+              },
+              {
+                "labelMd": "X25519",
+                "correct": true
+              },
+              {
+                "labelMd": "AES-256",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Que désigne l'expression « stocker maintenant, déchiffrer plus tard » ?",
+            "explanationMd": "Des échanges enregistrés aujourd'hui pourront être déchiffrés quand un ordinateur quantique existera : les données à longue durée de confidentialité sont déjà exposées.",
+            "choices": [
+              {
+                "labelMd": "Enregistrer des échanges chiffrés aujourd'hui pour les déchiffrer avec un futur ordinateur quantique",
+                "correct": true
+              },
+              {
+                "labelMd": "Une technique de sauvegarde des clés privées",
+                "correct": false
+              },
+              {
+                "labelMd": "Le fonctionnement normal d'un KEM",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Des données doivent rester secrètes 10 ans ($x$), la migration prendra 5 ans ($y$), et l'on estime qu'un ordinateur quantique capable arrivera dans 12 ans ($z$). Selon l'inégalité de Mosca…",
+            "explanationMd": "$x + y = 15 > z = 12$ : les données chiffrées pendant la migration seront encore sensibles quand elles deviendront déchiffrables.",
+            "choices": [
+              {
+                "labelMd": "on est déjà en retard, car $x + y > z$",
+                "correct": true
+              },
+              {
+                "labelMd": "on a encore 7 ans de marge",
+                "correct": false
+              },
+              {
+                "labelMd": "le problème ne concerne que les signatures",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Les nouveaux standards du NIST",
+      "lessons": [
+        {
+          "title": "ML-KEM (FIPS 203) : l'encapsulation de clés sur réseaux",
+          "type": "TEXT",
+          "file": "2-1-ml-kem.md",
+          "minutes": 20
+        },
+        {
+          "title": "ML-DSA et SLH-DSA : signer après le quantique",
+          "type": "TEXT",
+          "file": "2-2-signatures.md",
+          "minutes": 20
+        },
+        {
+          "title": "Vidéo : les fondamentaux du post-quantique (Devoxx France)",
+          "type": "YOUTUBE",
+          "youtube": "OohlQzDZMpQ",
+          "file": "2-3-video-devoxx.md"
+        },
+        {
+          "title": "Norme FIPS 203 (NIST) : ML-KEM",
+          "type": "PDF",
+          "document": "fips-203",
+          "file": "2-4-fips-203.md",
+          "minutes": 20
+        },
+        {
+          "title": "Norme FIPS 204 (NIST) : ML-DSA",
+          "type": "PDF",
+          "document": "fips-204",
+          "file": "2-5-fips-204.md",
+          "minutes": 20
+        },
+        {
+          "title": "Norme FIPS 205 (NIST) : SLH-DSA",
+          "type": "PDF",
+          "document": "fips-205",
+          "file": "2-6-fips-205.md",
+          "minutes": 20
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle est la taille d'un chiffré ML-KEM-768 ?",
+            "explanationMd": "1 088 octets (FIPS 203, tableau 3). Le secret partagé, lui, fait 32 octets.",
+            "choices": [
+              {
+                "labelMd": "1 088 octets",
+                "correct": true
+              },
+              {
+                "labelMd": "32 octets",
+                "correct": false
+              },
+              {
+                "labelMd": "64 octets",
+                "correct": false
+              },
+              {
+                "labelMd": "3 309 octets",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Sur quel problème difficile repose ML-KEM ?",
+            "explanationMd": "Module-LWE : retrouver $s$ à partir de $A$ et $b = As + e$, où $e$ est un petit bruit, sur des polynômes modulo $q = 3329$.",
+            "choices": [
+              {
+                "labelMd": "Module-LWE (réseaux euclidiens)",
+                "correct": true
+              },
+              {
+                "labelMd": "La factorisation",
+                "correct": false
+              },
+              {
+                "labelMd": "Le logarithme discret sur courbe elliptique",
+                "correct": false
+              },
+              {
+                "labelMd": "Les collisions de SHA-256",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quel standard de signature post-quantique repose uniquement sur la sécurité d'une fonction de hachage ?",
+            "explanationMd": "SLH-DSA (FIPS 205, issu de SPHINCS+). ML-DSA repose sur les réseaux euclidiens ; ML-KEM n'est pas une signature.",
+            "choices": [
+              {
+                "labelMd": "SLH-DSA",
+                "correct": true
+              },
+              {
+                "labelMd": "ML-DSA",
+                "correct": false
+              },
+              {
+                "labelMd": "ML-KEM",
+                "correct": false
+              },
+              {
+                "labelMd": "Ed25519",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Selon le guide ANSSI des mécanismes cryptographiques (2026), ML-KEM peut-il être utilisé seul ?",
+            "explanationMd": "Non : sans hybridation, ML-KEM ne respecte pas la règle *RègleSécuAsym*, quel que soit le jeu de paramètres.",
+            "choices": [
+              {
+                "labelMd": "Non, il doit être hybridé avec un mécanisme classique",
+                "correct": true
+              },
+              {
+                "labelMd": "Oui, dans sa version ML-KEM-1024",
+                "correct": false
+              },
+              {
+                "labelMd": "Oui, sans restriction",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "MULTIPLE",
+            "promptMd": "Quelles sont les trois opérations d'un mécanisme d'encapsulation de clés (KEM) ?",
+            "explanationMd": "Génération de clés, encapsulation, décapsulation. Un KEM ne signe pas.",
+            "choices": [
+              {
+                "labelMd": "Génération de clés",
+                "correct": true
+              },
+              {
+                "labelMd": "Encapsulation",
+                "correct": true
+              },
+              {
+                "labelMd": "Décapsulation",
+                "correct": true
+              },
+              {
+                "labelMd": "Signature",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "Migrer : hybridation et crypto-agilité",
+      "lessons": [
+        {
+          "title": "L'hybridation dans TLS 1.3 : X25519MLKEM768",
+          "type": "TEXT",
+          "file": "3-1-hybridation.md",
+          "minutes": 15
+        },
+        {
+          "title": "Fiche ANSSI : transition post-quantique de TLS 1.3",
+          "type": "PDF",
+          "document": "anssi-tls13-pq",
+          "file": "3-2-anssi-tls13-pq.md",
+          "minutes": 20
+        },
+        {
+          "title": "Préparer la migration",
+          "type": "TEXT",
+          "file": "3-3-migration.md",
+          "minutes": 12
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi l'ANSSI recommande-t-elle l'hybridation pendant la transition ?",
+            "explanationMd": "Les mécanismes post-quantiques sont jeunes (Rainbow et SIKE sont tombés en 2022) : l'attaquant doit casser à la fois le classique et le post-quantique.",
+            "choices": [
+              {
+                "labelMd": "Pour qu'un attaquant doive casser à la fois le mécanisme classique et le post-quantique",
+                "correct": true
+              },
+              {
+                "labelMd": "Pour réduire la taille des messages",
+                "correct": false
+              },
+              {
+                "labelMd": "Parce que les mécanismes post-quantiques sont lents",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Selon la fiche ANSSI sur TLS 1.3, quelle transition est la plus urgente ?",
+            "explanationMd": "La confidentialité (échange de clés), à cause des attaques « stocker maintenant, déchiffrer plus tard ».",
+            "choices": [
+              {
+                "labelMd": "Celle de l'échange de clés, pour la confidentialité",
+                "correct": true
+              },
+              {
+                "labelMd": "Celle de l'authentification par signature",
+                "correct": false
+              },
+              {
+                "labelMd": "Celle du protocole Record",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quel groupe d'échange de clés hybride est déjà déployé dans TLS 1.3 ?",
+            "explanationMd": "`X25519MLKEM768` combine X25519 et ML-KEM-768 ; OpenSSL 3.5 et les principaux navigateurs le proposent.",
+            "choices": [
+              {
+                "labelMd": "`X25519MLKEM768`",
+                "correct": true
+              },
+              {
+                "labelMd": "`secp256r1`",
+                "correct": false
+              },
+              {
+                "labelMd": "`ffdhe2048`",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Qu'est-ce qu'un système crypto-agile ?",
+            "explanationMd": "Un système dont les algorithmes et les tailles sont configurables et identifiés dans les formats de données, sans valeurs codées en dur.",
+            "choices": [
+              {
+                "labelMd": "Un système capable de changer d'algorithme sans être réécrit",
+                "correct": true
+              },
+              {
+                "labelMd": "Un système qui chiffre plus vite",
+                "correct": false
+              },
+              {
+                "labelMd": "Un système qui n'utilise que des algorithmes post-quantiques",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle est la première étape d'une migration post-quantique ?",
+            "explanationMd": "L'inventaire des usages de la cryptographie asymétrique : on ne migre que ce que l'on connaît.",
+            "choices": [
+              {
+                "labelMd": "Inventorier les usages de la cryptographie asymétrique",
+                "correct": true
+              },
+              {
+                "labelMd": "Remplacer AES",
+                "correct": false
+              },
+              {
+                "labelMd": "Attendre l'arrivée d'un ordinateur quantique",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

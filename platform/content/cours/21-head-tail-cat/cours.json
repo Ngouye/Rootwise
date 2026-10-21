@@ -1,0 +1,227 @@
+{
+  "title": "head, tail et cat sous Linux",
+  "summary": "Lire le début ou la fin d'un fichier, suivre les journaux en temps réel, assembler et diagnostiquer des fichiers : head, tail et cat en 21 fiches pratiques.",
+  "level": "BEGINNER",
+  "tags": [
+    "linux",
+    "bash"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Introduction et vue d'ensemble",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "type": "TEXT",
+          "file": "1-01-introduction.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "Les trois commandes en un coup d'œil",
+          "type": "TEXT",
+          "file": "1-02-les-trois-commandes-en-un-coup-d-il.md",
+          "minutes": 2,
+          "freePreview": true
+        }
+      ]
+    },
+    {
+      "title": "head : lire le début d'un fichier",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : head",
+          "type": "TEXT",
+          "file": "2-01-vue-d-ensemble-head.md",
+          "minutes": 2
+        },
+        {
+          "title": "01 · head — Afficher les 10 premières lignes",
+          "type": "TEXT",
+          "file": "2-02-01-head-afficher-les-10-premieres-lignes.md",
+          "minutes": 2
+        },
+        {
+          "title": "02 · head -n — Choisir le nombre de lignes",
+          "type": "TEXT",
+          "file": "2-03-02-head-n-choisir-le-nombre-de-lignes.md",
+          "minutes": 2
+        },
+        {
+          "title": "03 · head f1 f2 — Plusieurs fichiers à la fois",
+          "type": "TEXT",
+          "file": "2-04-03-head-f1-f2-plusieurs-fichiers-a-la-fois.md",
+          "minutes": 2
+        },
+        {
+          "title": "04 · head -c — Compter en octets",
+          "type": "TEXT",
+          "file": "2-05-04-head-c-compter-en-octets.md",
+          "minutes": 2
+        },
+        {
+          "title": "05 · head -n -N — Tout sauf les N dernières lignes",
+          "type": "TEXT",
+          "file": "2-06-05-head-n-n-tout-sauf-les-n-dernieres-lignes.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "tail : lire la fin et suivre les journaux",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : tail",
+          "type": "TEXT",
+          "file": "3-01-vue-d-ensemble-tail.md",
+          "minutes": 2
+        },
+        {
+          "title": "06 · tail — Afficher les 10 dernières lignes",
+          "type": "TEXT",
+          "file": "3-02-06-tail-afficher-les-10-dernieres-lignes.md",
+          "minutes": 2
+        },
+        {
+          "title": "07 · tail -n — Choisir le nombre de lignes",
+          "type": "TEXT",
+          "file": "3-03-07-tail-n-choisir-le-nombre-de-lignes.md",
+          "minutes": 2
+        },
+        {
+          "title": "08 · tail -f — Suivre un journal en temps réel",
+          "type": "TEXT",
+          "file": "3-04-08-tail-f-suivre-un-journal-en-temps-reel.md",
+          "minutes": 2
+        },
+        {
+          "title": "09 · tail -F — Survivre à la rotation des journaux",
+          "type": "TEXT",
+          "file": "3-05-09-tail-f-survivre-a-la-rotation-des-journaux.md",
+          "minutes": 2
+        },
+        {
+          "title": "10 · tail -n +N — Afficher à partir de la ligne N",
+          "type": "TEXT",
+          "file": "3-06-10-tail-n-n-afficher-a-partir-de-la-ligne-n.md",
+          "minutes": 2
+        },
+        {
+          "title": "11 · tail -c — Lire les derniers octets",
+          "type": "TEXT",
+          "file": "3-07-11-tail-c-lire-les-derniers-octets.md",
+          "minutes": 2
+        },
+        {
+          "title": "12 · journalctl -f — L'équivalent pour journald",
+          "type": "TEXT",
+          "file": "3-08-12-journalctl-f-l-equivalent-pour-journald.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "cat : afficher, assembler, créer",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : cat",
+          "type": "TEXT",
+          "file": "4-01-vue-d-ensemble-cat.md",
+          "minutes": 2
+        },
+        {
+          "title": "13 · cat — Afficher un fichier",
+          "type": "TEXT",
+          "file": "4-02-13-cat-afficher-un-fichier.md",
+          "minutes": 2
+        },
+        {
+          "title": "14 · cat f1 f2 > f3 — Assembler des fichiers",
+          "type": "TEXT",
+          "file": "4-03-14-cat-f1-f2-f3-assembler-des-fichiers.md",
+          "minutes": 2
+        },
+        {
+          "title": "15 · cat > et heredoc — Créer et compléter un fichier",
+          "type": "TEXT",
+          "file": "4-04-15-cat-et-heredoc-creer-et-completer-un-fichier.md",
+          "minutes": 2
+        },
+        {
+          "title": "16 · cat -n et -b — Numéroter les lignes",
+          "type": "TEXT",
+          "file": "4-05-16-cat-n-et-b-numeroter-les-lignes.md",
+          "minutes": 2
+        },
+        {
+          "title": "17 · cat -A — Révéler les caractères invisibles",
+          "type": "TEXT",
+          "file": "4-06-17-cat-a-reveler-les-caracteres-invisibles.md",
+          "minutes": 2
+        },
+        {
+          "title": "18 · cat | … — Alimenter un pipeline",
+          "type": "TEXT",
+          "file": "4-07-18-cat-alimenter-un-pipeline.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Aller plus loin : combiner les commandes",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : combiner les commandes",
+          "type": "TEXT",
+          "file": "5-01-vue-d-ensemble-combiner-les-commandes.md",
+          "minutes": 2
+        },
+        {
+          "title": "19 · tac — Lire un fichier à l'envers",
+          "type": "TEXT",
+          "file": "5-02-19-tac-lire-un-fichier-a-l-envers.md",
+          "minutes": 2
+        },
+        {
+          "title": "20 · head | tail — Extraire une plage de lignes",
+          "type": "TEXT",
+          "file": "5-03-20-head-tail-extraire-une-plage-de-lignes.md",
+          "minutes": 2
+        },
+        {
+          "title": "21 · Recettes — Les combinaisons du quotidien",
+          "type": "TEXT",
+          "file": "5-04-21-recettes-les-combinaisons-du-quotidien.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Conclusion et annexes",
+      "lessons": [
+        {
+          "title": "Conclusion",
+          "type": "TEXT",
+          "file": "6-01-conclusion.md",
+          "minutes": 2
+        },
+        {
+          "title": "Annexes : aide-mémoire et références",
+          "type": "TEXT",
+          "file": "6-02-annexes-aide-memoire-et-references.md",
+          "minutes": 5
+        },
+        {
+          "title": "Le guide complet en PDF",
+          "type": "PDF",
+          "file": "6-03-le-guide-complet-en-pdf.md",
+          "minutes": 30,
+          "pdf": "Guide_head_tail_cat_Ngouye_GNING_illustre-1.pdf"
+        }
+      ]
+    }
+  ]
+}

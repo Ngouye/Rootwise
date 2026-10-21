@@ -1,0 +1,255 @@
+{
+  "title": "Les 22 commandes réseau Linux essentielles",
+  "summary": "Configuration, diagnostic, DNS, capture de paquets, surveillance et pare-feu : 22 commandes réseau incontournables pour l'administrateur système, avec exemples commentés et bonnes pratiques.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "linux",
+    "reseau"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Introduction et vue d'ensemble",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "type": "TEXT",
+          "file": "1-01-introduction.md",
+          "minutes": 2,
+          "freePreview": true
+        },
+        {
+          "title": "Vue d'ensemble des 22 commandes",
+          "type": "TEXT",
+          "file": "1-02-vue-d-ensemble-des-22-commandes.md",
+          "minutes": 3,
+          "freePreview": true
+        }
+      ]
+    },
+    {
+      "title": "Configuration, dépannage et débogage",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : configuration et dépannage",
+          "type": "TEXT",
+          "file": "2-01-vue-d-ensemble-configuration-et-depannage.md",
+          "minutes": 2
+        },
+        {
+          "title": "01 · ifconfig — Afficher et configurer les interfaces",
+          "type": "TEXT",
+          "file": "2-02-01-ifconfig-afficher-et-configurer-les-interfaces.md",
+          "minutes": 2
+        },
+        {
+          "title": "02 · ip — La boîte à outils réseau moderne",
+          "type": "TEXT",
+          "file": "2-03-02-ip-la-boite-a-outils-reseau-moderne.md",
+          "minutes": 3
+        },
+        {
+          "title": "03 · ifup, ifdown, ifquery — Piloter les interfaces déclarées",
+          "type": "TEXT",
+          "file": "2-04-03-ifup-ifdown-ifquery-piloter-les-interfaces-decl.md",
+          "minutes": 2
+        },
+        {
+          "title": "04 · ethtool — Inspecter et régler la carte réseau",
+          "type": "TEXT",
+          "file": "2-05-04-ethtool-inspecter-et-regler-la-carte-reseau.md",
+          "minutes": 2
+        },
+        {
+          "title": "05 · ping — Tester la connectivité",
+          "type": "TEXT",
+          "file": "2-06-05-ping-tester-la-connectivite.md",
+          "minutes": 2
+        },
+        {
+          "title": "06 · traceroute — Tracer le chemin des paquets",
+          "type": "TEXT",
+          "file": "2-07-06-traceroute-tracer-le-chemin-des-paquets.md",
+          "minutes": 2
+        },
+        {
+          "title": "07 · mtr — Diagnostic réseau en temps réel",
+          "type": "TEXT",
+          "file": "2-08-07-mtr-diagnostic-reseau-en-temps-reel.md",
+          "minutes": 2
+        },
+        {
+          "title": "08 · route — Gérer la table de routage",
+          "type": "TEXT",
+          "file": "2-09-08-route-gerer-la-table-de-routage.md",
+          "minutes": 2
+        },
+        {
+          "title": "09 · nmcli — Piloter NetworkManager",
+          "type": "TEXT",
+          "file": "2-10-09-nmcli-piloter-networkmanager.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Analyse du réseau et des performances",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : analyse et performances",
+          "type": "TEXT",
+          "file": "3-01-vue-d-ensemble-analyse-et-performances.md",
+          "minutes": 2
+        },
+        {
+          "title": "10 · netstat — Connexions, ports et statistiques",
+          "type": "TEXT",
+          "file": "3-02-10-netstat-connexions-ports-et-statistiques.md",
+          "minutes": 2
+        },
+        {
+          "title": "11 · ss — Statistiques des sockets",
+          "type": "TEXT",
+          "file": "3-03-11-ss-statistiques-des-sockets.md",
+          "minutes": 2
+        },
+        {
+          "title": "12 · nc (netcat) — Le couteau suisse du réseau",
+          "type": "TEXT",
+          "file": "3-04-12-nc-netcat-le-couteau-suisse-du-reseau.md",
+          "minutes": 2
+        },
+        {
+          "title": "13 · nmap — Cartographier le réseau et auditer les ports",
+          "type": "TEXT",
+          "file": "3-05-13-nmap-cartographier-le-reseau-et-auditer-les-por.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Résolution DNS",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : résolution DNS",
+          "type": "TEXT",
+          "file": "4-01-vue-d-ensemble-resolution-dns.md",
+          "minutes": 2
+        },
+        {
+          "title": "14 · host — Résolution DNS rapide",
+          "type": "TEXT",
+          "file": "4-02-14-host-resolution-dns-rapide.md",
+          "minutes": 2
+        },
+        {
+          "title": "15 · dig — L'outil DNS de référence",
+          "type": "TEXT",
+          "file": "4-03-15-dig-l-outil-dns-de-reference.md",
+          "minutes": 2
+        },
+        {
+          "title": "16 · nslookup — Interroger le DNS en mode direct ou interactif",
+          "type": "TEXT",
+          "file": "4-04-16-nslookup-interroger-le-dns-en-mode-direct-ou-in.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Capture et analyse de paquets",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : capture et analyse de paquets",
+          "type": "TEXT",
+          "file": "5-01-vue-d-ensemble-capture-et-analyse-de-paquets.md",
+          "minutes": 2
+        },
+        {
+          "title": "17 · tcpdump — Capturer les paquets en console",
+          "type": "TEXT",
+          "file": "5-02-17-tcpdump-capturer-les-paquets-en-console.md",
+          "minutes": 2
+        },
+        {
+          "title": "18 · Wireshark — Analyser les protocoles en mode graphique",
+          "type": "TEXT",
+          "file": "5-03-18-wireshark-analyser-les-protocoles-en-mode-graph.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Surveillance du trafic",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : surveillance du trafic",
+          "type": "TEXT",
+          "file": "6-01-vue-d-ensemble-surveillance-du-trafic.md",
+          "minutes": 2
+        },
+        {
+          "title": "19 · bmon — Surveiller la bande passante en temps réel",
+          "type": "TEXT",
+          "file": "6-02-19-bmon-surveiller-la-bande-passante-en-temps-reel.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Gestion du pare-feu",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : gestion du pare-feu",
+          "type": "TEXT",
+          "file": "7-01-vue-d-ensemble-gestion-du-pare-feu.md",
+          "minutes": 2
+        },
+        {
+          "title": "20 · iptables — Le pare-feu Netfilter historique",
+          "type": "TEXT",
+          "file": "7-02-20-iptables-le-pare-feu-netfilter-historique.md",
+          "minutes": 2
+        },
+        {
+          "title": "21 · firewalld — Le pare-feu dynamique par zones",
+          "type": "TEXT",
+          "file": "7-03-21-firewalld-le-pare-feu-dynamique-par-zones.md",
+          "minutes": 2
+        },
+        {
+          "title": "22 · ufw — Le pare-feu simplifié",
+          "type": "TEXT",
+          "file": "7-04-22-ufw-le-pare-feu-simplifie.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Conclusion et annexes",
+      "lessons": [
+        {
+          "title": "Conclusion",
+          "type": "TEXT",
+          "file": "8-01-conclusion.md",
+          "minutes": 2
+        },
+        {
+          "title": "Annexes : aide-mémoire et références",
+          "type": "TEXT",
+          "file": "8-02-annexes-aide-memoire-et-references.md",
+          "minutes": 8
+        },
+        {
+          "title": "Le guide complet en PDF",
+          "type": "PDF",
+          "file": "8-03-le-guide-complet-en-pdf.md",
+          "minutes": 40,
+          "pdf": "Guide_Commandes_Reseau_Linux_Ngouye_GNING_illustre-1.pdf"
+        }
+      ]
+    }
+  ]
+}

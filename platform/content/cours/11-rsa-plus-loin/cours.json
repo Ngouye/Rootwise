@@ -1,0 +1,147 @@
+{
+  "title": "RSA et signatures numériques",
+  "extends": true,
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Signer et vérifier",
+      "lessons": [
+        {
+          "title": "Signature numérique : principe et code",
+          "type": "TEXT",
+          "file": "0-signature.md",
+          "minutes": 8
+        }
+      ]
+    },
+    {
+      "title": "Pour aller plus loin : RSA en pratique",
+      "lessons": [
+        {
+          "title": "RSA en pratique : OAEP, PSS et tailles de clés",
+          "type": "TEXT",
+          "file": "1-rsa-pratique.md",
+          "minutes": 20
+        },
+        {
+          "title": "Vidéo : l'arithmétique pour RSA (Exo7)",
+          "type": "YOUTUBE",
+          "youtube": "M7vOxKVLsVY",
+          "file": "2-video-arithmetique.md",
+          "minutes": 19
+        },
+        {
+          "title": "Vidéo : le chiffrement RSA (Exo7)",
+          "type": "YOUTUBE",
+          "youtube": "Xlal_d4zyfo",
+          "file": "3-video-chiffrement.md",
+          "minutes": 18
+        },
+        {
+          "title": "Vidéo : la magie du protocole RSA (String Theory)",
+          "type": "YOUTUBE",
+          "youtube": "Y2bsLRdVBP8",
+          "file": "4-video-string-theory.md",
+          "minutes": 5
+        },
+        {
+          "title": "Guide ANSSI des mécanismes cryptographiques (2026)",
+          "type": "PDF",
+          "document": "anssi-mecanismes",
+          "file": "5-anssi-mecanismes.md",
+          "minutes": 30
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Avec le RSA de manuel, que déchiffre le destinataire si l'attaquant remplace $c$ par $c \\cdot 2^e \\bmod n$ ?",
+            "explanationMd": "$(m^e)(2^e) = (2m)^e$ : le destinataire obtient $2m$. Le RSA de manuel est malléable.",
+            "choices": [
+              {
+                "labelMd": "$2m$",
+                "correct": true
+              },
+              {
+                "labelMd": "$m + 2$",
+                "correct": false
+              },
+              {
+                "labelMd": "Un message aléatoire",
+                "correct": false
+              },
+              {
+                "labelMd": "Une erreur de déchiffrement",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quel mécanisme utiliser pour chiffrer avec RSA ?",
+            "explanationMd": "RSA-OAEP (PKCS #1 v2), conforme au guide ANSSI. PKCS #1 v1.5 est exposé à l'attaque de Bleichenbacher.",
+            "choices": [
+              {
+                "labelMd": "RSA-OAEP",
+                "correct": true
+              },
+              {
+                "labelMd": "PKCS #1 v1.5",
+                "correct": false
+              },
+              {
+                "labelMd": "Le RSA de manuel avec $e = 3$",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Selon le guide ANSSI (2026), quelle taille minimale de module RSA faut-il pour une utilisation à partir de 2031 ?",
+            "explanationMd": "*RègleFactorisation* : 2 048 bits jusqu'à la fin de 2030, 3 072 bits à partir de 2031.",
+            "choices": [
+              {
+                "labelMd": "3 072 bits",
+                "correct": true
+              },
+              {
+                "labelMd": "2 048 bits",
+                "correct": false
+              },
+              {
+                "labelMd": "1 024 bits",
+                "correct": false
+              },
+              {
+                "labelMd": "256 bits",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi l'exposant public $e = 65537$ est-il un bon choix ?",
+            "explanationMd": "L'ANSSI exige $e > 2^{16} = 65536$ ; 65537 est le plus petit nombre premier qui convient, et il rend le chiffrement et la vérification rapides.",
+            "choices": [
+              {
+                "labelMd": "Il est strictement supérieur à $2^{16}$, comme l'exige l'ANSSI, tout en restant rapide",
+                "correct": true
+              },
+              {
+                "labelMd": "Il doit rester secret",
+                "correct": false
+              },
+              {
+                "labelMd": "Il rend la factorisation plus difficile",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

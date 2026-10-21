@@ -1,0 +1,243 @@
+{
+  "title": "20 commandes DNF indispensables",
+  "summary": "Installer, mettre à jour, annuler et entretenir les paquets sur Fedora, RHEL, Rocky Linux et AlmaLinux : 20 fiches pratiques, un chapitre DNF5 et une routine sûre pour la production.",
+  "level": "BEGINNER",
+  "tags": [
+    "linux",
+    "paquets"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Introduction et vue d'ensemble",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "type": "TEXT",
+          "file": "1-01-introduction.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "DNF en un coup d'œil",
+          "type": "TEXT",
+          "file": "1-02-dnf-en-un-coup-d-il.md",
+          "minutes": 4,
+          "freePreview": true
+        }
+      ]
+    },
+    {
+      "title": "Installer et mettre à jour",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : installer et mettre à jour",
+          "type": "TEXT",
+          "file": "2-01-vue-d-ensemble-installer-et-mettre-a-jour.md",
+          "minutes": 2
+        },
+        {
+          "title": "01 · dnf install — Installer un paquet et ses dépendances",
+          "type": "TEXT",
+          "file": "2-02-01-dnf-install-installer-un-paquet-et-ses-dependan.md",
+          "minutes": 2
+        },
+        {
+          "title": "02 · dnf remove — Désinstaller un paquet proprement",
+          "type": "TEXT",
+          "file": "2-03-02-dnf-remove-desinstaller-un-paquet-proprement.md",
+          "minutes": 2
+        },
+        {
+          "title": "03 · dnf check-update — Vérifier les mises à jour disponibles",
+          "type": "TEXT",
+          "file": "2-04-03-dnf-check-update-verifier-les-mises-a-jour-disp.md",
+          "minutes": 2
+        },
+        {
+          "title": "04 · dnf upgrade — Mettre à jour un paquet ou tout le système",
+          "type": "TEXT",
+          "file": "2-05-04-dnf-upgrade-mettre-a-jour-un-paquet-ou-tout-le.md",
+          "minutes": 2
+        },
+        {
+          "title": "05 · dnf install ./x.rpm — Installer un RPM local ou distant",
+          "type": "TEXT",
+          "file": "2-06-05-dnf-install-x-rpm-installer-un-rpm-local-ou-dis.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Rechercher et inspecter",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : rechercher et inspecter",
+          "type": "TEXT",
+          "file": "3-01-vue-d-ensemble-rechercher-et-inspecter.md",
+          "minutes": 2
+        },
+        {
+          "title": "06 · dnf search — Rechercher un paquet par mot-clé",
+          "type": "TEXT",
+          "file": "3-02-06-dnf-search-rechercher-un-paquet-par-mot-cle.md",
+          "minutes": 2
+        },
+        {
+          "title": "07 · dnf info — Afficher le détail d'un paquet",
+          "type": "TEXT",
+          "file": "3-03-07-dnf-info-afficher-le-detail-d-un-paquet.md",
+          "minutes": 2
+        },
+        {
+          "title": "08 · dnf list — Lister les paquets selon leur état",
+          "type": "TEXT",
+          "file": "3-04-08-dnf-list-lister-les-paquets-selon-leur-etat.md",
+          "minutes": 2
+        },
+        {
+          "title": "09 · dnf provides — Trouver le paquet qui fournit un fichier",
+          "type": "TEXT",
+          "file": "3-05-09-dnf-provides-trouver-le-paquet-qui-fournit-un-f.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Historique et retour arrière",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : historique et retour arrière",
+          "type": "TEXT",
+          "file": "4-01-vue-d-ensemble-historique-et-retour-arriere.md",
+          "minutes": 2
+        },
+        {
+          "title": "10 · dnf history — Consulter l'historique des transactions",
+          "type": "TEXT",
+          "file": "4-02-10-dnf-history-consulter-l-historique-des-transact.md",
+          "minutes": 2
+        },
+        {
+          "title": "11 · dnf history undo — Annuler ou rejouer une transaction",
+          "type": "TEXT",
+          "file": "4-03-11-dnf-history-undo-annuler-ou-rejouer-une-transac.md",
+          "minutes": 2
+        },
+        {
+          "title": "12 · dnf downgrade — Revenir à une version antérieure",
+          "type": "TEXT",
+          "file": "4-04-12-dnf-downgrade-revenir-a-une-version-anterieure.md",
+          "minutes": 2
+        },
+        {
+          "title": "13 · dnf reinstall — Réinstaller un paquet endommagé",
+          "type": "TEXT",
+          "file": "4-05-13-dnf-reinstall-reinstaller-un-paquet-endommage.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Dépôts, groupes et modules",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : dépôts, groupes et modules",
+          "type": "TEXT",
+          "file": "5-01-vue-d-ensemble-depots-groupes-et-modules.md",
+          "minutes": 2
+        },
+        {
+          "title": "14 · dnf repolist — Lister et activer des dépôts",
+          "type": "TEXT",
+          "file": "5-02-14-dnf-repolist-lister-et-activer-des-depots.md",
+          "minutes": 2
+        },
+        {
+          "title": "15 · dnf config-manager — Ajouter et configurer des dépôts",
+          "type": "TEXT",
+          "file": "5-03-15-dnf-config-manager-ajouter-et-configurer-des-de.md",
+          "minutes": 2
+        },
+        {
+          "title": "16 · dnf group — Installer un ensemble de paquets",
+          "type": "TEXT",
+          "file": "5-04-16-dnf-group-installer-un-ensemble-de-paquets.md",
+          "minutes": 2
+        },
+        {
+          "title": "17 · dnf module — Choisir la version d'une application",
+          "type": "TEXT",
+          "file": "5-05-17-dnf-module-choisir-la-version-d-une-application.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Entretien et vérification",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : entretien et vérification",
+          "type": "TEXT",
+          "file": "6-01-vue-d-ensemble-entretien-et-verification.md",
+          "minutes": 2
+        },
+        {
+          "title": "18 · dnf autoremove — Supprimer les dépendances orphelines",
+          "type": "TEXT",
+          "file": "6-02-18-dnf-autoremove-supprimer-les-dependances-orphel.md",
+          "minutes": 2
+        },
+        {
+          "title": "19 · dnf clean — Vider et reconstruire le cache",
+          "type": "TEXT",
+          "file": "6-03-19-dnf-clean-vider-et-reconstruire-le-cache.md",
+          "minutes": 2
+        },
+        {
+          "title": "20 · dnf check — Vérifier la cohérence de la base RPM",
+          "type": "TEXT",
+          "file": "6-04-20-dnf-check-verifier-la-coherence-de-la-base-rpm.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "DNF5, la nouvelle génération",
+      "lessons": [
+        {
+          "title": "DNF5 : ce qui change",
+          "type": "TEXT",
+          "file": "7-01-dnf5-ce-qui-change.md",
+          "minutes": 3
+        }
+      ]
+    },
+    {
+      "title": "Conclusion et annexes",
+      "lessons": [
+        {
+          "title": "Conclusion",
+          "type": "TEXT",
+          "file": "8-01-conclusion.md",
+          "minutes": 2
+        },
+        {
+          "title": "Annexes : aide-mémoire et références",
+          "type": "TEXT",
+          "file": "8-02-annexes-aide-memoire-et-references.md",
+          "minutes": 7
+        },
+        {
+          "title": "Le guide complet en PDF",
+          "type": "PDF",
+          "file": "8-03-le-guide-complet-en-pdf.md",
+          "minutes": 40,
+          "pdf": "Guide_DNF_Ngouye_GNING_illustre-1.pdf"
+        }
+      ]
+    }
+  ]
+}

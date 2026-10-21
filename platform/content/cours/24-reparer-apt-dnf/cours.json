@@ -1,0 +1,226 @@
+{
+  "title": "Réparer apt et dnf après une mise à jour interrompue",
+  "summary": "Verrous, paquets à moitié installés, doublons RPM : la méthode sûre, étape par étape, pour réparer apt et dnf sans réinstaller le serveur — et prévenir les incidents.",
+  "level": "INTERMEDIATE",
+  "tags": [
+    "linux",
+    "paquets"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Introduction et vue d'ensemble",
+      "lessons": [
+        {
+          "title": "Introduction",
+          "type": "TEXT",
+          "file": "1-01-introduction.md",
+          "minutes": 3,
+          "freePreview": true
+        },
+        {
+          "title": "Le parcours de réparation en un coup d'œil",
+          "type": "TEXT",
+          "file": "1-02-le-parcours-de-reparation-en-un-coup-d-il.md",
+          "minutes": 2,
+          "freePreview": true
+        }
+      ]
+    },
+    {
+      "title": "Comprendre ce qui s'est passé",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : comprendre ce qui s'est passé",
+          "type": "TEXT",
+          "file": "2-01-vue-d-ensemble-comprendre-ce-qui-s-est-passe.md",
+          "minutes": 2
+        },
+        {
+          "title": "1.1 · Le verrou de la base des paquets",
+          "type": "TEXT",
+          "file": "2-02-1-1-le-verrou-de-la-base-des-paquets.md",
+          "minutes": 2
+        },
+        {
+          "title": "1.2 · Paquets à moitié installés : les états de dpkg",
+          "type": "TEXT",
+          "file": "2-03-1-2-paquets-a-moitie-installes-les-etats-de-dpkg.md",
+          "minutes": 2
+        },
+        {
+          "title": "1.3 · Doublons RPM : le cas de dnf",
+          "type": "TEXT",
+          "file": "2-04-1-3-doublons-rpm-le-cas-de-dnf.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Identifier ce qui bloque",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : identifier ce qui bloque",
+          "type": "TEXT",
+          "file": "3-01-vue-d-ensemble-identifier-ce-qui-bloque.md",
+          "minutes": 2
+        },
+        {
+          "title": "01 · tmux — Sécuriser la session avant d'agir",
+          "type": "TEXT",
+          "file": "3-02-01-tmux-securiser-la-session-avant-d-agir.md",
+          "minutes": 2
+        },
+        {
+          "title": "02 · fuser -v — Trouver le processus qui détient le verrou",
+          "type": "TEXT",
+          "file": "3-03-02-fuser-v-trouver-le-processus-qui-detient-le-ver.md",
+          "minutes": 2
+        },
+        {
+          "title": "03 · rm (verrous orphelins) — Supprimer un verrou orphelin",
+          "type": "TEXT",
+          "file": "3-04-03-rm-verrous-orphelins-supprimer-un-verrou-orphel.md",
+          "minutes": 2
+        },
+        {
+          "title": "04 · ps -fp — Identifier le processus attendu par dnf",
+          "type": "TEXT",
+          "file": "3-05-04-ps-fp-identifier-le-processus-attendu-par-dnf.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Réparer sous Debian et Ubuntu",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : réparer sous Debian et Ubuntu",
+          "type": "TEXT",
+          "file": "4-01-vue-d-ensemble-reparer-sous-debian-et-ubuntu.md",
+          "minutes": 2
+        },
+        {
+          "title": "05 · dpkg --configure -a — Terminer les configurations interrompues",
+          "type": "TEXT",
+          "file": "4-02-05-dpkg-configure-a-terminer-les-configurations-in.md",
+          "minutes": 2
+        },
+        {
+          "title": "06 · apt install -f — Réparer les dépendances",
+          "type": "TEXT",
+          "file": "4-03-06-apt-install-f-reparer-les-dependances.md",
+          "minutes": 2
+        },
+        {
+          "title": "07 · dpkg --audit — Vérifier la cohérence de la base",
+          "type": "TEXT",
+          "file": "4-04-07-dpkg-audit-verifier-la-coherence-de-la-base.md",
+          "minutes": 2
+        },
+        {
+          "title": "08 · apt update && apt upgrade — Reprendre la mise à jour",
+          "type": "TEXT",
+          "file": "4-05-08-apt-update-apt-upgrade-reprendre-la-mise-a-jour.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Réparer sous RHEL, Rocky Linux et AlmaLinux",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : réparer sous RHEL, Rocky et AlmaLinux",
+          "type": "TEXT",
+          "file": "5-01-vue-d-ensemble-reparer-sous-rhel-rocky-et-almalinu.md",
+          "minutes": 2
+        },
+        {
+          "title": "09 · dnf check — Détecter les doublons et incohérences",
+          "type": "TEXT",
+          "file": "5-02-09-dnf-check-detecter-les-doublons-et-incoherences.md",
+          "minutes": 2
+        },
+        {
+          "title": "10 · dnf remove --duplicates — Supprimer les anciennes versions",
+          "type": "TEXT",
+          "file": "5-03-10-dnf-remove-duplicates-supprimer-les-anciennes-v.md",
+          "minutes": 2
+        },
+        {
+          "title": "11 · rpm --rebuilddb — Reconstruire la base RPM",
+          "type": "TEXT",
+          "file": "5-04-11-rpm-rebuilddb-reconstruire-la-base-rpm.md",
+          "minutes": 2
+        },
+        {
+          "title": "12 · dnf clean all && dnf distro-sync — Réaligner le système sur les dépôts",
+          "type": "TEXT",
+          "file": "5-05-12-dnf-clean-all-dnf-distro-sync-realigner-le-syst.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Prévenir les incidents",
+      "lessons": [
+        {
+          "title": "Vue d'ensemble : prévenir les incidents",
+          "type": "TEXT",
+          "file": "6-01-vue-d-ensemble-prevenir-les-incidents.md",
+          "minutes": 2
+        },
+        {
+          "title": "13 · tmux — Des mises à jour qui survivent aux coupures",
+          "type": "TEXT",
+          "file": "6-02-13-tmux-des-mises-a-jour-qui-survivent-aux-coupure.md",
+          "minutes": 2
+        },
+        {
+          "title": "14 · Instantanés — Un point de retour avant les mises à jour majeures",
+          "type": "TEXT",
+          "file": "6-03-14-instantanes-un-point-de-retour-avant-les-mises.md",
+          "minutes": 2
+        },
+        {
+          "title": "15 · dnf history — Consulter et annuler une transaction",
+          "type": "TEXT",
+          "file": "6-04-15-dnf-history-consulter-et-annuler-une-transactio.md",
+          "minutes": 2
+        },
+        {
+          "title": "16 · Journaux et minuteurs — Savoir ce qui s'est passé, et quand",
+          "type": "TEXT",
+          "file": "6-05-16-journaux-et-minuteurs-savoir-ce-qui-s-est-passe.md",
+          "minutes": 2
+        }
+      ]
+    },
+    {
+      "title": "Conclusion et annexes",
+      "lessons": [
+        {
+          "title": "Conclusion",
+          "type": "TEXT",
+          "file": "7-01-conclusion.md",
+          "minutes": 2
+        },
+        {
+          "title": "Annexes : aide-mémoire et références",
+          "type": "TEXT",
+          "file": "7-02-annexes-aide-memoire-et-references.md",
+          "minutes": 6
+        },
+        {
+          "title": "Le guide complet en PDF",
+          "type": "PDF",
+          "file": "7-03-le-guide-complet-en-pdf.md",
+          "minutes": 30,
+          "pdf": "Guide_Reparer_apt_dnf_Ngouye_GNING_illustre-1.pdf"
+        }
+      ]
+    }
+  ]
+}

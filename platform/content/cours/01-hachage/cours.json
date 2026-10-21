@@ -1,0 +1,439 @@
+{
+  "title": "Fonctions de hachage, MAC et mots de passe",
+  "summary": "SHA-2, SHA-3, HMAC et Argon2id : garantir l'intégrité, authentifier un message et stocker un mot de passe correctement.",
+  "level": "BEGINNER",
+  "tags": [
+    "hachage"
+  ],
+  "author": "ngouye",
+  "description": "presentation.md",
+  "cover": "images/couverture.webp",
+  "chapters": [
+    {
+      "title": "Qu'est-ce qu'une fonction de hachage ?",
+      "lessons": [
+        {
+          "title": "Empreinte, taille fixe et effet avalanche",
+          "type": "TEXT",
+          "file": "1-1-empreinte.md",
+          "minutes": 8,
+          "freePreview": true
+        },
+        {
+          "title": "Préimage, collisions et paradoxe des anniversaires",
+          "type": "TEXT",
+          "file": "1-2-proprietes.md",
+          "minutes": 10
+        },
+        {
+          "title": "Vidéo : les fonctions de hachage",
+          "type": "YOUTUBE",
+          "youtube": "-k_axU98AZ4",
+          "file": "1-3-video.md",
+          "minutes": 10
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle est la taille d'une empreinte SHA-256 ?",
+            "explanationMd": "256 bits = 32 octets, soit 64 caractères hexadécimaux, quelle que soit la taille du message.",
+            "choices": [
+              {
+                "labelMd": "32 octets",
+                "correct": true
+              },
+              {
+                "labelMd": "64 octets",
+                "correct": false
+              },
+              {
+                "labelMd": "256 octets",
+                "correct": false
+              },
+              {
+                "labelMd": "Elle dépend de la taille du message",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pour une empreinte de $n$ bits, combien de calculs faut-il environ pour trouver une collision par une attaque générique ?",
+            "explanationMd": "Paradoxe des anniversaires : une collision devient probable après environ $2^{n/2}$ essais.",
+            "choices": [
+              {
+                "labelMd": "$2^{n/2}$",
+                "correct": true
+              },
+              {
+                "labelMd": "$2^{n}$",
+                "correct": false
+              },
+              {
+                "labelMd": "$n^2$",
+                "correct": false
+              },
+              {
+                "labelMd": "$2^{n-1}$",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "MULTIPLE",
+            "promptMd": "Quelles fonctions ne doivent plus être utilisées pour un usage de sécurité ?",
+            "explanationMd": "MD5 (collisions depuis 2004) et SHA-1 (collision publique en 2017) sont cassées. SHA-256 et SHA3-256 sont conformes au guide ANSSI.",
+            "choices": [
+              {
+                "labelMd": "MD5",
+                "correct": true
+              },
+              {
+                "labelMd": "SHA-1",
+                "correct": true
+              },
+              {
+                "labelMd": "SHA-256",
+                "correct": false
+              },
+              {
+                "labelMd": "SHA3-256",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "`echo bonjour | sha256sum` et `printf bonjour | sha256sum` affichent des empreintes différentes. Pourquoi ?",
+            "explanationMd": "`echo` ajoute un retour à la ligne : le message haché n'est pas le même, et l'effet avalanche change toute l'empreinte.",
+            "choices": [
+              {
+                "labelMd": "`echo` ajoute un retour à la ligne, qui fait partie du message haché",
+                "correct": true
+              },
+              {
+                "labelMd": "SHA-256 utilise un aléa différent à chaque appel",
+                "correct": false
+              },
+              {
+                "labelMd": "`printf` utilise SHA-1",
+                "correct": false
+              },
+              {
+                "labelMd": "Elles sont en réalité identiques",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Un attaquant contrôle à la fois le fichier téléchargé et la page qui affiche son SHA-256. La vérification de l'empreinte vous protège-t-elle ?",
+            "explanationMd": "Non : il suffit à l'attaquant de publier l'empreinte de son fichier modifié. Il faut une clé (HMAC) ou une signature numérique.",
+            "choices": [
+              {
+                "labelMd": "Non, il faut une clé secrète (HMAC) ou une signature",
+                "correct": true
+              },
+              {
+                "labelMd": "Oui, SHA-256 est résistant aux collisions",
+                "correct": false
+              },
+              {
+                "labelMd": "Oui, si l'on utilise SHA-512",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "SHA-2 et SHA-3 de l'intérieur",
+      "lessons": [
+        {
+          "title": "Merkle–Damgård et SHA-256",
+          "type": "TEXT",
+          "file": "2-1-sha2.md",
+          "minutes": 15
+        },
+        {
+          "title": "SHA-3 et la construction éponge",
+          "type": "TEXT",
+          "file": "2-2-sha3.md",
+          "minutes": 12
+        },
+        {
+          "title": "Vidéo : les rouages de SHA-256",
+          "type": "YOUTUBE",
+          "youtube": "74SWg_ZbUj4",
+          "file": "2-3-video.md",
+          "minutes": 58
+        },
+        {
+          "title": "Norme FIPS 180-4 (NIST) : SHA-1 et SHA-2",
+          "type": "PDF",
+          "document": "fips-180-4",
+          "file": "2-4-fips-180-4.md",
+          "minutes": 20
+        },
+        {
+          "title": "Norme FIPS 202 (NIST) : SHA-3",
+          "type": "PDF",
+          "document": "fips-202",
+          "file": "2-5-fips-202.md",
+          "minutes": 20
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi $H(\\text{clé} \\parallel \\text{message})$ avec SHA-256 n'est-il pas un code d'authentification sûr ?",
+            "explanationMd": "Avec Merkle–Damgård, l'empreinte est l'état interne final : on peut prolonger le calcul sans connaître la clé (extension de longueur).",
+            "choices": [
+              {
+                "labelMd": "À cause de l'attaque par extension de longueur",
+                "correct": true
+              },
+              {
+                "labelMd": "Parce que SHA-256 est cassé",
+                "correct": false
+              },
+              {
+                "labelMd": "Parce que la clé apparaît en clair dans l'empreinte",
+                "correct": false
+              },
+              {
+                "labelMd": "Il est parfaitement sûr",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Dans la construction éponge de SHA-3, quelle partie de l'état fixe le niveau de sécurité ?",
+            "explanationMd": "La capacité $c$ n'est jamais exposée ; la sécurité est d'environ $c/2$ bits.",
+            "choices": [
+              {
+                "labelMd": "La capacité $c$",
+                "correct": true
+              },
+              {
+                "labelMd": "Le débit $r$",
+                "correct": false
+              },
+              {
+                "labelMd": "Le nombre de tours",
+                "correct": false
+              },
+              {
+                "labelMd": "La longueur du message",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "MULTIPLE",
+            "promptMd": "Lesquelles sont des fonctions à sortie extensible (XOF) ?",
+            "explanationMd": "SHAKE128 et SHAKE256 produisent une sortie de longueur choisie ; SHA-512 et SHA3-256 ont une sortie fixe.",
+            "choices": [
+              {
+                "labelMd": "SHAKE128",
+                "correct": true
+              },
+              {
+                "labelMd": "SHAKE256",
+                "correct": true
+              },
+              {
+                "labelMd": "SHA-512",
+                "correct": false
+              },
+              {
+                "labelMd": "SHA3-256",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Combien de tours la compression de SHA-256 applique-t-elle à chaque bloc de 512 bits ?",
+            "explanationMd": "64 tours pour SHA-256 (80 pour SHA-512 ; Keccak-f[1600] en compte 24).",
+            "choices": [
+              {
+                "labelMd": "64",
+                "correct": true
+              },
+              {
+                "labelMd": "80",
+                "correct": false
+              },
+              {
+                "labelMd": "24",
+                "correct": false
+              },
+              {
+                "labelMd": "10",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi le NIST a-t-il organisé le concours qui a produit SHA-3 ?",
+            "explanationMd": "SHA-2 n'est pas cassé : il s'agissait de disposer d'une alternative de conception différente, au cas où.",
+            "choices": [
+              {
+                "labelMd": "Pour disposer d'une alternative de conception différente de SHA-2",
+                "correct": true
+              },
+              {
+                "labelMd": "Parce que SHA-256 avait été cassé",
+                "correct": false
+              },
+              {
+                "labelMd": "Pour remplacer AES",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "title": "MAC et mots de passe",
+      "lessons": [
+        {
+          "title": "HMAC : authentifier un message",
+          "type": "TEXT",
+          "file": "3-1-hmac.md",
+          "minutes": 12
+        },
+        {
+          "title": "Stocker un mot de passe : Argon2id",
+          "type": "TEXT",
+          "file": "3-2-argon2.md",
+          "minutes": 12
+        },
+        {
+          "title": "RFC 9106 : Argon2",
+          "type": "PDF",
+          "document": "rfc-9106",
+          "file": "3-3-rfc-9106.md",
+          "minutes": 15
+        }
+      ],
+      "quiz": {
+        "passScorePct": 70,
+        "maxAttempts": null,
+        "questions": [
+          {
+            "kind": "SINGLE",
+            "promptMd": "Pourquoi vérifier un tag HMAC avec `MessageDigest.isEqual` plutôt qu'avec `Arrays.equals` ?",
+            "explanationMd": "`Arrays.equals` s'arrête au premier octet différent : le temps de réponse permet de deviner le tag octet par octet.",
+            "choices": [
+              {
+                "labelMd": "Pour comparer en temps constant et éviter une attaque temporelle",
+                "correct": true
+              },
+              {
+                "labelMd": "Parce que c'est plus rapide",
+                "correct": false
+              },
+              {
+                "labelMd": "Parce que `Arrays.equals` ne gère pas les tableaux d'octets",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle propriété un MAC n'offre-t-il pas, contrairement à une signature numérique ?",
+            "explanationMd": "La clé est partagée : le destinataire pourrait fabriquer le tag lui-même, donc il ne peut rien prouver à un tiers.",
+            "choices": [
+              {
+                "labelMd": "La non-répudiation",
+                "correct": true
+              },
+              {
+                "labelMd": "L'intégrité",
+                "correct": false
+              },
+              {
+                "labelMd": "L'authenticité de l'origine pour le destinataire",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "MULTIPLE",
+            "promptMd": "Quelles caractéristiques doit avoir une fonction de stockage de mots de passe ?",
+            "explanationMd": "Salée, lente et réglable, gourmande en mémoire. Elle ne doit surtout pas être réversible.",
+            "choices": [
+              {
+                "labelMd": "Utiliser un sel unique par compte",
+                "correct": true
+              },
+              {
+                "labelMd": "Être lente, avec un coût réglable",
+                "correct": true
+              },
+              {
+                "labelMd": "Exiger beaucoup de mémoire",
+                "correct": true
+              },
+              {
+                "labelMd": "Être réversible pour pouvoir renvoyer le mot de passe oublié",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Quelle variante d'Argon2 faut-il choisir pour stocker des mots de passe ?",
+            "explanationMd": "Argon2id combine les protections d'Argon2i (canaux auxiliaires) et d'Argon2d (attaques GPU).",
+            "choices": [
+              {
+                "labelMd": "Argon2id",
+                "correct": true
+              },
+              {
+                "labelMd": "Argon2d",
+                "correct": false
+              },
+              {
+                "labelMd": "Argon2i",
+                "correct": false
+              }
+            ]
+          },
+          {
+            "kind": "SINGLE",
+            "promptMd": "Le sel d'un mot de passe doit être…",
+            "explanationMd": "Le sel n'est pas un secret : il est stocké en clair avec l'empreinte. Son rôle est de rendre chaque empreinte unique.",
+            "choices": [
+              {
+                "labelMd": "aléatoire, unique par compte, et stocké en clair avec l'empreinte",
+                "correct": true
+              },
+              {
+                "labelMd": "secret et identique pour tous les comptes",
+                "correct": false
+              },
+              {
+                "labelMd": "le nom d'utilisateur",
+                "correct": false
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

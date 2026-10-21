@@ -1,0 +1,124 @@
+{
+  "documents": {
+    "fips-197": {
+      "file": "fips-197-aes.pdf",
+      "title": "FIPS 197 — Advanced Encryption Standard (AES), mise à jour du 9 mai 2023",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.197-upd1.pdf",
+      "sha256": "62c86eb567f13edb8f71826e985da870b04ef6381634f303cdb16e84d47becd1",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "sp-800-38d": {
+      "file": "sp-800-38d-gcm.pdf",
+      "title": "NIST SP 800-38D — Galois/Counter Mode (GCM) and GMAC, novembre 2007",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf",
+      "sha256": "d99f3921ccebca049e7522426553aba071dae14ec3d5b6041e8c111a6cb57bba",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "fips-180-4": {
+      "file": "fips-180-4-sha.pdf",
+      "title": "FIPS 180-4 — Secure Hash Standard (SHS), août 2015",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf",
+      "sha256": "0455b406d89648d20cbde375561e19c245b9815e894164c2670772e3d54deb82",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "fips-202": {
+      "file": "fips-202-sha3.pdf",
+      "title": "FIPS 202 — SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions, août 2015",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf",
+      "sha256": "1592607831ff0908cc590632ce371c6c95e94025bb1a0c8ae90a4d0ec1ed025e",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "fips-186-5": {
+      "file": "fips-186-5-dss.pdf",
+      "title": "FIPS 186-5 — Digital Signature Standard (DSS), 3 février 2023",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf",
+      "sha256": "fbb9c7c2ba442f03c57b63b43c888311903c9d0f29f89b06efdebd9b619140c5",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "fips-203": {
+      "file": "fips-203-ml-kem.pdf",
+      "title": "FIPS 203 — Module-Lattice-Based Key-Encapsulation Mechanism Standard (ML-KEM), 13 août 2024",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf",
+      "sha256": "fe1f12f32a7e44ec9fdebbf400cda843a40b506dee676725234dc6f7923b6cac",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "fips-204": {
+      "file": "fips-204-ml-dsa.pdf",
+      "title": "FIPS 204 — Module-Lattice-Based Digital Signature Standard (ML-DSA), 13 août 2024",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf",
+      "sha256": "57239b9f84c03227eda3ca0991204dc7764c79af9ce2e6824eda774918d46b6b",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "fips-205": {
+      "file": "fips-205-slh-dsa.pdf",
+      "title": "FIPS 205 — Stateless Hash-Based Digital Signature Standard (SLH-DSA), 13 août 2024",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.205.pdf",
+      "sha256": "8ef34228276f3386d23cb0da8c14592b8cfb0db3358016bba64df7a004f8d13d",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "sp-800-52r2": {
+      "file": "nist-sp-800-52r2-tls.pdf",
+      "title": "NIST SP 800-52 Rev. 2 — Guidelines for the Selection, Configuration, and Use of TLS Implementations, août 2019",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-52r2.pdf",
+      "sha256": "f9a4dbb9cc6ac6778bb9f4e6be9272c2f14d113f3ad241a295684ac6bd71f257",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "sp-800-57p1r5": {
+      "file": "nist-sp-800-57p1r5-cles.pdf",
+      "title": "NIST SP 800-57 Part 1 Rev. 5 — Recommendation for Key Management: General, mai 2020",
+      "publisher": "NIST",
+      "url": "https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf",
+      "sha256": "cc32391022c1382ac7c91490f6bcc8838e0f889925270da23ef4e800e2ecb7ad",
+      "license": "Œuvre du gouvernement fédéral des États-Unis, non soumise au droit d'auteur (17 U.S.C. § 105)"
+    },
+    "rfc-9106": {
+      "file": "rfc-9106-argon2.pdf",
+      "title": "RFC 9106 — Argon2 Memory-Hard Function for Password Hashing and Proof-of-Work Applications, septembre 2021",
+      "publisher": "IRTF / RFC Editor",
+      "url": "https://www.rfc-editor.org/rfc/rfc9106.pdf",
+      "sha256": "b88ac945c998b566981276edbd3b18cb5e0347f4e311b16cc8892cb84f6c3ea4",
+      "license": "© IETF Trust et auteurs ; diffusion intégrale et non modifiée autorisée (IETF Trust Legal Provisions, BCP 78)"
+    },
+    "anssi-tls": {
+      "file": "anssi-tls-v1.2.pdf",
+      "title": "ANSSI — Recommandations de sécurité relatives à TLS, version 1.2 du 26/03/2020",
+      "publisher": "ANSSI",
+      "url": "https://messervices.cyber.gouv.fr/documents-guides/anssi-guide-recommandations_de_securite_relatives_a_tls-v1.2.pdf",
+      "sha256": "0475a97a133d27213f38c7cef8c4489998de9427859f2ccaabcffbda101119fa",
+      "license": "Licence Ouverte / Open Licence (Etalab)"
+    },
+    "anssi-tls13-pq": {
+      "file": "anssi-tls13-post-quantique.pdf",
+      "title": "ANSSI — Transition post-quantique de TLS 1.3, fiche technique ANSSI-FT-115 du 02/02/2026",
+      "publisher": "ANSSI",
+      "url": "https://messervices.cyber.gouv.fr/documents-guides/transition_post_quantique_tls_1_3.pdf",
+      "sha256": "aa6be4b81dc0ffce4569865d5520e7bf3db3e2b6e3573f278a8019d6ef4ccc56",
+      "license": "Licence Ouverte v2.0 (Etalab)"
+    },
+    "anssi-selection": {
+      "file": "anssi-selection-algorithmes.pdf",
+      "title": "ANSSI — Guide de sélection d'algorithmes cryptographiques, ANSSI-PA-079 du 8/3/2021",
+      "publisher": "ANSSI",
+      "url": "https://messervices.cyber.gouv.fr/documents-guides/anssi-guide-selection_crypto-1.0.pdf",
+      "sha256": "5b48eb227d57be08c7d0365b39e3168be7580222f8c0cf69e044fb9265950281",
+      "license": "Licence Ouverte / Open Licence (Etalab)"
+    },
+    "anssi-mecanismes": {
+      "file": "anssi-mecanismes-crypto.pdf",
+      "title": "ANSSI — Règles et recommandations concernant le choix et le dimensionnement des mécanismes cryptographiques, ANSSI-PG-083 du 2026-03-20",
+      "publisher": "ANSSI",
+      "url": "https://messervices.cyber.gouv.fr/documents-guides/anssi-guide-mecanismes-crypto-3.00.pdf",
+      "sha256": "1baf13e8ae81bd476f09aed12885587850429a6925a182b6b8d5c76b31b288ec",
+      "license": "Licence Ouverte v2.0 (Etalab)"
+    }
+  }
+}
